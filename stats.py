@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from collections import Counter
 from teams import all_players, get_players_for_team
-from m import *
+from matches import *
 from logging.config import logging
 from player import Player
 

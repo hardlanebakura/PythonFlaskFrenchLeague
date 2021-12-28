@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, url_for, session, jsonify, Bl
 from flask_paginate import Pagination, get_page_parameter, get_page_args
 from jinja2 import TemplateNotFound
 from log_config import logging
-from m import matches, clubs_sorted
+from matches import matches, clubs_sorted
 from teams import *
 from player import Player
 from goalkeeper import Goalkeeper

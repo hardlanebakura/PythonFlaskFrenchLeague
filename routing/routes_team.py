@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, url_for, session, jsonify, Blueprint, abort
 from jinja2 import TemplateNotFound
 from log_config import logging
-from m import *
+from matches import *
 from clubs import *
 from teams import *
 from teams_info import teams_info
