@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block h_1 %}
+<script>
+    var team = {{ team|tojson }}
+</script>
+<link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/team.css')}}">
+{% endblock %}
+
+{% block body %}
+
+1
+    <div class = "teams_team_overview">
+        <img src = "/./static/images/stadiums/stadium-AS-Saint-Étienne.jpg">
+
+        <div class = "teams_team_name">
+        {{ team }}
+        </div>
+        <div class = "teams_buttons">
+        <button class = "tickets">
+            TICKETS
+        </button>
+        <button class = "boutique">
+            BOUTIQUE
+        </button>
+        </div>
+        <div class = "teams_socials_pages">
+            <div class = "teams_twitter">
+                1
+            </div>
+        </div>
+    </div>
+
+    <div class = "team_menu">
+        <div class = "team_logo">
+
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}">
+            GENERAL
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}/calendar">
+            CALENDAR
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}/stadium">
+            STADIUM
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}/squad">
+            SQUAD
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}/staff">
+            STAFF
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}/stats">
+            STATS
+            </a>
+        </div>
+        <div class = "team_menu_option active_option">
+            <a href = "/teams/{{ id }}/honours">
+            HONOURS
+            </a>
+        </div>
+        <div class = "select_club">
+
+        </div>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <div class = "team_info_header">
+        TROPHIES
+    </div>
+
+    {% if trophies %}
+    <div class = "trophies">
+        {% for competition in trophies %}
+        <div class = "all_trophies">
+            <div class = "all_trophies_header">
+                {{ competition }}
+            </div>
+            <div class = "all_trophies_trophies">
+                {% for trophy_year in trophies[competition] %}
+                    <div class = "trophy">
+                    <img class = "team_trophy_img" src = "/./static/images/Clermont.png">
+                        <div class = "trophy_year">
+                            {{ trophy_year }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class = "team_team_not">
+        This team has not won any trophies.
+    </div>
+    {% endif %}
+    <br>
+    <br>
+    <br>
+    <br>
+
+<script type = "text/javascript" src = "{{ url_for('static', filename = '/js/trophies.js')}}"></script>
+
+{% endblock %}

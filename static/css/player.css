@@ -1,0 +1,528 @@
+.player {
+
+display:flex;
+
+}
+
+.player_player {
+
+margin-top:40px;
+margin-left:4%;
+
+}
+
+.player_player_name {
+
+font-size:24px;
+margin-top:34px;
+
+}
+
+.player_player_info_1 {
+
+min-width: max-content;
+display:flex;
+
+}
+
+.player_player_info_1 img {
+
+margin-left:40px;
+
+}
+
+.player_player_nationality img {
+
+height: 29px;
+width: 40px;
+padding-top: 1px;
+margin-inline: 4px;
+
+}
+
+.player_latest_news_news {
+
+margin-top:4%;
+margin-left:14%;
+
+}
+
+.player_latest_news_news img {
+
+height:300px;
+width:400px;
+
+}
+
+.player_latest_news_news a {
+
+text-decoration:none;
+color:#000;
+
+}
+
+.player_latest_news_header {
+
+font-size: 23px;
+letter-spacing: .04em;
+line-height: 1.5;
+margin-top: 47px;
+margin-bottom: 5px;
+margin-left:70px;
+
+}
+
+.player_latest_news_title {
+
+margin-left:40px;
+
+}
+
+
+.player_player_info_1_2 {
+
+display:flex;
+
+}
+
+.player_player_height_cm {
+
+margin-inline:14px;
+padding-top:6px;
+
+}
+
+.player_player_weight_kg {
+
+margin-inline:4px;
+padding-top:6px;
+
+}
+
+.player_player_info_2 {
+
+display:flex;
+
+}
+
+.player_overall_rating {
+
+margin: 7px;
+padding-top: 4px;
+
+}
+
+.player_overall_rating_1 {
+
+height:24px;
+width:34px;
+margin-left: 37%;
+margin-bottom: 10px;
+padding-top:3px;
+color:#fff;
+
+}
+
+.player_potential {
+
+margin: 7px;
+padding-top: 4px;
+
+}
+
+.player_potential_1 {
+
+height:24px;
+width:34px;
+margin-left: 10%;
+margin-bottom: 10px;
+padding-top:3px;
+color:#fff;
+
+}
+
+.player_value {
+
+width: 100px;
+margin-top: 13px;
+
+}
+
+.player_value_1 {
+
+height:24px;
+text-align:center;
+
+}
+
+.player_wage {
+
+width: 100px;
+margin-top: 13px;
+
+}
+
+.player_wage_1 {
+
+height:24px;
+text-align: center;
+
+}
+
+.player_profile {
+
+margin:40px;
+color: #868e96;
+display:flex;
+
+}
+
+.player_profile_info_1_1 {
+
+min-width: max-content;
+display:flex;
+
+}
+
+.player_profile_info_1_1_title {
+
+margin-right:10px;
+color:orange;
+
+}
+
+.player_profile_info_1_1_content {
+
+text-align:left;
+
+}
+
+.player_profile_info_header {
+
+margin-bottom:14px;
+font-size:19px;
+color:#000;
+
+}
+
+.players_player_positions {
+
+margin-top:1px;
+margin-left: 14px;
+color:#fff;
+display:flex;
+
+}
+
+.players_player_positions > * {
+
+height: 26px;
+width: 40px;
+padding-top: 4px;
+margin-inline:4px;
+background-color:yellow;
+
+}
+
+.player_profile_club {
+
+margin-left:14px;
+
+}
+
+.player_profile_club_name {
+
+text-transform:capitalize;
+display:flex;
+
+}
+
+.player_profile_club_name img {
+
+height:fit-content;
+
+}
+
+.player_profile_club_name > * {
+
+margin-inline:4px;
+
+}
+
+.player_profile_club_position {
+
+display:flex;
+color:#ff0000;
+
+}
+
+.player_profile_club_position_value {
+
+margin-left:40px;
+color:#868e96;
+
+}
+
+.player_profile_club_joined {
+
+display:flex;
+color:#ff0000;
+
+}
+
+.player_profile_club_joined_value {
+
+margin-left:14px;
+color:#868e96;
+
+}
+
+.player_diagram {
+
+margin-left:10%;
+margin-bottom:40px;
+
+}
+
+.player_diagram_player {
+
+display:flex;
+
+}
+
+.player_diagram_pic img {
+
+height:70px;
+width:70px;
+
+}
+
+.player_diagram_player_info {
+
+margin-top:1px;
+
+}
+
+.player_diagram_name_flag {
+
+margin-top:4px;
+margin-left:10px;
+display:flex;
+
+}
+
+.player_diagram_player_name {
+
+margin-left:10px;
+padding-top:1px;
+
+}
+
+.player_diagram_player_name a {
+
+text-decoration:none;
+color:#000;
+
+}
+
+.player_diagram_player_flag {
+
+
+
+}
+
+.player_diagram_player_value_positions {
+
+margin-top:4px;
+margin-left:2px;
+display:flex;
+
+}
+
+.player_diagram_player_value_positions > * {
+
+margin-inline:7px;
+
+
+}
+
+.player_diagram_header {
+
+height:40px;
+margin-top:40px;
+padding:10px;
+font-size: 18px;
+line-height: .75rem;
+text-transform: uppercase;
+
+}
+
+.player_diagram_header img {
+
+height: 340px;
+width: 340px;
+transform:translateY(-460px);
+
+}
+
+.player_diagram_player_overall {
+
+height: 24px;
+width: 34px;
+padding-top:4px;
+background-color:yellow;
+color:#fff;
+
+}
+
+.player_diagram_player_potential {
+
+height: 24px;
+width: 34px;
+padding-top:4px;
+background-color:yellow;
+color:#fff;
+
+}
+
+.player_diagram_player_positions {
+
+display:flex;
+
+}
+
+.player_diagram_player_position {
+
+height: 24px;
+width: 34px;
+margin-top:4px;
+
+}
+
+.player_diagram_similar {
+
+transform:translateY(-40px);
+
+}
+
+.pitch_img {
+
+height:450px;
+width:340px;
+
+}
+
+.player_positions_row {
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+.player_position_1 {
+
+height:42px;
+width:48px;
+margin: 7px;
+padding-top: 4px;
+color:#fff;
+background-color:yellow;
+transform: translate(0px, -460px);
+
+}
+
+.player_abilities_rows {
+
+display:flex;
+
+}
+
+.player_abilities_row {
+
+margin-left:4%;
+
+}
+
+.player_abilities_gk {
+
+margin-left:140px;
+margin-top:14px;
+display:flex;
+
+}
+
+.player_abilities_1 {
+
+margin-top:14px;
+display:flex;
+
+}
+
+.player_abilities_title {
+
+width:100%;
+padding-top:4px;
+
+}
+
+.player_abilities_value {
+
+height: 26px;
+width: 40px;
+padding-top: 4px;
+margin-inline:4px;
+background-color:yellow;
+color:#fff;
+
+}
+
+.player_player_dob {
+
+padding-top:6px;
+padding-left:10px;
+
+}
+
+@media only screen and (max-width: 1500px) {
+
+    .player_diagram {
+
+        margin-left:4%;
+
+    }
+
+    .player_player {
+
+        margin-left:1%;
+
+    }
+
+    .player_latest_news_news {
+
+        margin-left:1%;
+
+    }
+
+    .player_abilities_row {
+
+        margin-left:1%;
+
+    }
+
+    .player_player_info_1 img {
+
+        margin-left:1%;
+
+    }
+
+    .player_latest_news img {
+
+        margin-left:3%;
+
+    }
+
+}
+
+
+

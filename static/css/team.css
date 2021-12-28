@@ -1,0 +1,618 @@
+.teams_team_overview {
+
+height:280px;
+max-height:280px;
+color:#fff;
+font-size: 35px;
+font-weight: 900;
+text-align: center;
+overflow:hidden;
+
+}
+
+.teams_team_overview img {
+
+height:100%;
+width:100%;
+
+}
+
+.teams_team_name {
+
+height:170px;
+padding-top: 39px;
+position:absolute;
+left:40%;
+transform:translateY(-240px);
+
+}
+
+.teams_buttons {
+
+margin-left:77%;
+display:flex;
+
+}
+
+.tickets {
+
+padding: 15px 30px;
+border-radius: 4px;
+display: inline-block;
+cursor: pointer;
+border: none;
+background-color: #cdfb0a;
+color: #091c3e;
+position:absolute;
+transform:translate(-100px, -70px);
+
+}
+
+.boutique {
+
+padding: 15px 30px;
+margin-left:70px;
+border-radius: 4px;
+display: inline-block;
+cursor: pointer;
+border: none;
+background-color: #cdfb0a;
+color: #091c3e;
+position:absolute;
+transform:translate(-19px, -70px);
+
+}
+
+.teams_socials_pages {
+
+display:flex;
+
+}
+
+a {
+
+color:#fff;
+text-decoration:none;
+
+}
+
+.active_option {
+
+background-color:#091c3e;
+color:#fff;
+
+}
+
+.team_menu {
+
+margin-bottom:49px;
+display:flex;
+justify-content:center;
+align-items:center;
+background-color: #e0e0e0;
+
+}
+
+.team_menu_option {
+
+padding: 20px;
+font-size: 19px;
+text-transform: uppercase;
+line-height: 1.1;
+
+}
+
+.team_info {
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+.team_calendar {
+
+margin-bottom:4%;
+
+}
+
+.team_calendar_fixture {
+
+font-size:17px;
+display:flex;
+align-items:center;
+
+}
+
+.team_fixture {
+
+display:flex;
+
+}
+
+.team_fixture > * {
+
+margin-top:4%
+
+}
+
+.team_fixture_team_name {
+
+width:190px;
+text-align:left;
+
+}
+
+.team_calendar_fixture > * {
+
+margin-inline:1%;
+
+}
+
+.team_calendar_fixture img {
+
+height:48px;
+width:48px;
+margin-top:1px;
+margin-left:10px;
+margin-right:10px;
+
+}
+
+.team_calendar_fixture_number {
+
+margin-left:37%;
+margin-top:-5px;
+
+}
+
+.team_general_info {
+
+margin-left:40px;
+margin-right:40px;
+
+}
+
+.team_general_info_1 {
+
+background-color: #091c3e;
+color: #fff;
+padding:10px;
+
+}
+
+.team_info_header {
+
+font-size: 23px;
+letter-spacing: .04em;
+line-height: 1.5;
+margin-top:7px;
+margin-bottom: 5px;
+
+}
+
+.team_team_goalkeepers {
+
+margin-top:40px;
+margin-left:14px;
+
+}
+
+.team_team_defenders {
+
+margin-top:40px;
+margin-left:14px;
+
+}
+
+.team_team_midfielders {
+
+margin-top:40px;
+margin-left:14px;
+
+}
+
+.team_team_forwards {
+
+margin-top:40px;
+margin-left:14px;
+margin-bottom:40px;
+
+}
+
+.team_general_info_ranking {
+
+
+
+}
+
+.team_top_scorer {
+
+background-color: #091c3e;
+color: #fff;
+
+}
+
+.team_scorer {
+
+padding-top:3px;
+
+}
+
+.team_tables {
+
+width:380px;
+margin-top:40px;
+margin-bottom:40px;
+margin-left:17px;
+background-color:#fff;
+color:#091c3e;
+
+}
+
+.team_tables_menu {
+
+display:flex;
+
+}
+
+.team_tables_menu >* {
+
+margin-inline:24px;
+
+}
+
+.team_tables_table {
+
+
+
+}
+
+.team_tables_table_team {
+
+display:flex;
+align-items:center;
+text-align:left;
+
+}
+
+.team_tables_table_team_rank {
+
+margin-left:7%;
+width:5%;
+
+}
+
+.team_recent_m {
+
+height:58px;
+padding:10px;
+background-color: #091c3e;
+color: #fff;
+font-size:22px;
+
+}
+
+.team_next_m {
+
+height:58px;
+padding:10px;
+background-color: #091c3e;
+color: #fff;
+font-size:22px;
+
+}
+
+.team_tables_heading {
+
+padding:19px;
+
+}
+
+.team_tables_table_team_logo {
+
+width:7%;
+margin-left: 7%;
+
+}
+
+.team_tables_table_team_logo img {
+
+height:28px;
+width:28px;
+
+}
+
+.team_tables_table_team_name {
+
+height:7%;
+width:19%;
+margin-left:4%;
+
+}
+
+.team_tables_table_team_pts {
+
+height:7%;
+width:7%;
+margin-left:4%;
+
+}
+
+.team_tables_table_team_pm {
+
+height:7%;
+width:7%;
+margin-left:12%;
+
+}
+
+.team_tables_table_team_gd {
+
+height:7%;
+width:7%;
+margin-left:9%;
+
+}
+
+.team_team_player {
+
+display:flex;
+
+}
+
+.team_team_player_name {
+
+
+
+}
+
+.team_team_player_nationality {
+
+
+
+}
+
+.team_team_staff {
+
+margin-top:40px;
+margin-bottom:80px;
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+.team_team_staff_image img {
+
+height:140px;
+width:140px;
+border-radius:50%;
+
+}
+
+
+.team_team_staff_1 {
+
+margin-left:3%;
+
+}
+
+.team_team_staff_name {
+
+font-size:24px;
+
+}
+
+.team_latest_news {
+
+display:flex;
+
+}
+
+.team_latest_news_row {
+
+margin-top: 5%;
+margin-left: 4%;
+display:flex;
+
+}
+
+.team_latest_news_news {
+
+margin-inline:10%;
+
+}
+
+.team_latest_news_news a {
+
+text-decoration:none;
+color:#000;
+
+}
+
+.team_latest_news_image img {
+
+height:290px;
+width:400px;
+
+}
+
+
+.team_team_stadium {
+
+margin-left:40%;
+text-align:left;
+
+}
+
+.team_team_stadium a {
+
+color: #091c3e;
+text-decoration:none;
+
+}
+
+.team_latest_news_header {
+
+font-size: 23px;
+letter-spacing: .04em;
+line-height: 1.5;
+margin-top: 7px;
+margin-bottom: 5px;
+
+}
+
+.all_trophies_header {
+
+margin:24px;
+font-size:24px;
+
+}
+
+.all_trophies_trophies {
+
+margin-top:17px;
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+.trophy {
+
+margin-inline:24px;
+
+}
+
+.team_trophy_img {
+
+height:110px;
+width:100px;
+
+}
+
+.player_squad_player {
+
+display:flex;
+
+}
+
+.player_squad_player a {
+
+color:#000;
+
+}
+
+.player_squad_pic img {
+
+height:70px;
+width:70px;
+
+}
+
+.player_squad_player_info {
+
+margin-top:1px;
+
+}
+
+.player_squad_name_flag {
+
+margin-top:4px;
+margin-left:10px;
+display:flex;
+
+}
+
+.player_squad_player_name {
+
+margin-left:10px;
+padding-top:1px;
+
+}
+
+.player_squad_player_flag {
+
+
+
+}
+
+.player_squad_player_value_positions {
+
+margin-top:4px;
+margin-left:2px;
+display:flex;
+
+}
+
+.player_squad_player_value_positions > * {
+
+margin-inline:7px;
+
+
+}
+
+.player_squad_header {
+
+height:40px;
+margin-top:40px;
+padding:10px;
+font-size: 18px;
+line-height: .75rem;
+text-transform: uppercase;
+
+}
+
+.player_squad_header img {
+
+height: 340px;
+width: 340px;
+transform:translateY(-460px);
+
+}
+
+.player_squad_player_overall {
+
+height: 24px;
+width: 34px;
+padding-top:4px;
+background-color:yellow;
+color:#fff;
+
+}
+
+.player_squad_player_potential {
+
+height: 24px;
+width: 34px;
+padding-top:4px;
+background-color:yellow;
+color:#fff;
+
+}
+
+.player_squad_player_positions {
+
+display:flex;
+
+}
+
+.player_squad_player_position {
+
+height: 24px;
+width: 34px;
+margin-top:4px;
+
+}
+
+@media only screen and (max-width: 1500px) {
+
+    .team_latest_news_image {
+
+    margin-left:-40px;
+
+
+    }
+
+}

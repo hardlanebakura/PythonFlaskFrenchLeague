@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block h_1 %}
+<script>
+    var team = {{ team|tojson }}
+    var clubs = {{ clubs|tojson }}
+</script>
+<link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/statistics.css')}}">
+{% endblock %}
+
+{% block body %}
+
+    <div class = "general_info_header">
+        Ligue 1 Uber Eats Statistics
+    </div>
+    <div class = "teams_team_overview">
+            <img src = "{{ url_for('static', filename = '/images/ratio_18_11_11_11.jpg')}}">
+        <div class = "teams_team_name">
+        STATISTICS
+        </div>
+    </div>
+
+    <div class = "team_menu">
+        <div class = "team_menu_option">
+            <a href = "/statistics/">
+                GENERAL
+            </a>
+        </div>
+        <div class = "team_menu_option active_option">
+            <a href = "/statistics/player_stats">
+                PLAYER STATS
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/statistics/team_stats">
+                TEAM STATS
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/statistics/fun_facts">
+                FUN FACTS
+            </a>
+        </div>
+        <div class = "select_club">
+
+        </div>
+
+    </div>
+
+    <div class = "general_info_header">
+        Ligue 1 Uber Eats Player Statistics
+    </div>
+
+    <div class = "team_info_header">
+        PLAYER PREFERRED FOOT
+    </div>
+
+    <div class = "statistics_player_preferred_foot">
+        <img src = "{{ url_for('static', filename = '/images/chartforplayerpreferredfoot.png') }}">
+    </div>
+
+    <div class = "statistics_player_nationalities">
+        <img src = "{{ url_for('static', filename = '/images/chartforplayernationalities.png') }}">
+    </div>
+    <div class = "statistics_player_weights_to_skill">
+        <img src = "{{ url_for('static', filename = '/images/playerweighttoskillrelationshipchart.png') }}">
+    </div>
+
+<script type = "text/javascript" src = "{{ url_for('static', filename = '/js/statistics.js')}}"></script>
+
+{% endblock %}

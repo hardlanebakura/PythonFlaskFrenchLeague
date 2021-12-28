@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block h_1 %}
+<script>
+    var teams = {{ teams|tojson }}
+</script>
+<link rel = "stylesheet" href = "{{ url_for ('static', filename = '/css/teams.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+<div class = "teams_general_info">
+    Ligue 1 Uber Eats teams
+</div>
+
+{% for team in teams %}
+
+    <div class = "teams_team_overview">
+        <a href = "/teams/{{ clubs[0].rank }}">
+            <img>
+        <div class = "teams_team_name">
+        {{ team }}
+        </div>
+        </a>
+        <div class = "teams_buttons">
+        <button class = "tickets">
+            TICKETS
+        </button>
+        <button class = "boutique">
+            BOUTIQUE
+        </button>
+        </div>
+        <div class = "teams_socials_pages">
+            <div class = "teams_twitter">
+                1
+            </div>
+        </div>
+    </div>
+
+{% endfor %}
+
+<script type = "text/javascript" src = "{{ url_for('static', filename = '/js/teams.js') }}"></script>
+
+{% endblock %}

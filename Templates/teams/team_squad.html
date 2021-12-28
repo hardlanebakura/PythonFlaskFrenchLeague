@@ -1,0 +1,250 @@
+{% extends 'base.html' %}
+
+{% block h_1 %}
+<script>
+    var team = {{ team|tojson }}
+</script>
+<link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/team.css')}}">
+{% endblock %}
+
+{% block body %}
+
+1
+    <div class = "teams_team_overview">
+        <img src = "/./static/images/stadiums/stadium-AS-Saint-Étienne.jpg">
+
+        <div class = "teams_team_name">
+        {{ team }}
+        </div>
+        <div class = "teams_buttons">
+        <button class = "tickets">
+            TICKETS
+        </button>
+        <button class = "boutique">
+            BOUTIQUE
+        </button>
+        </div>
+        <div class = "teams_socials_pages">
+            <div class = "teams_twitter">
+                1
+            </div>
+        </div>
+    </div>
+
+    <div class = "team_menu">
+        <div class = "team_logo">
+
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}">
+            GENERAL
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}/calendar">
+            CALENDAR
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}/stadium">
+            STADIUM
+            </a>
+        </div>
+        <div class = "team_menu_option active_option">
+            <a href = "/teams/{{ id }}/squad">
+            SQUAD
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}/staff">
+            STAFF
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}/stats">
+            STATS
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}/honours">
+            HONOURS
+            </a>
+        </div>
+        <div class = "select_club">
+
+        </div>
+
+    </div>
+
+    <div class = "team_team_squad">
+        <div class = "team_team_goalkeepers">
+            <div class = "team_info_header">
+                GOALKEEPERS
+            </div>
+            <div class = "team_team_goalkeepers">
+                {% for player in squad["goalkeepers"] %}
+                <div class = "player_squad_player">
+                        <div class = "player_squad_pic">
+                            <img src = "{{ player.player_face_url }}">
+                        </div>
+                        <div class = "player_squad_player_info">
+                            <div class = "player_squad_name_flag">
+                                <div class = "player_squad_player_flag">
+                                    <img src = "{{ player.nation_flag_url }}">
+                                </div>
+                                <div class = "player_squad_player_name">
+                                    {{ player.short_name }}
+                                </div>
+                            </div>
+                            <div class = "player_squad_player_value_positions">
+                                <div class = "player_squad_player_overall">
+                                    {{ player.overall }}
+                                </div>
+                                <div class = "player_squad_player_potential">
+                                    {{ player.potential }}
+                                </div>
+                                <div class = "player_squad_player_positions">
+                                    {% for position in player.player_positions %}
+                                        <div class = "player_squad_player_position">
+                                            {{ position }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class = "team_team_defenders">
+             <div class = "team_info_header">
+                DEFENDERS
+             </div>
+            <div class = "team_team_defenders_1">
+                {% for player in squad["defenders"] %}
+                <div class = "player_squad_player">
+                        <div class = "player_squad_pic">
+                            <img src = "{{ player.player_face_url }}">
+                        </div>
+                        <div class = "player_squad_player_info">
+                            <div class = "player_squad_name_flag">
+                                <div class = "player_squad_player_flag">
+                                    <img src = "{{ player.nation_flag_url }}">
+                                </div>
+                                <div class = "player_squad_player_name">
+                                    <a href = "/players/{{ player.link_id }}">
+                                    {{ player.short_name }}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class = "player_squad_player_value_positions">
+                                <div class = "player_squad_player_overall">
+                                    {{ player.overall }}
+                                </div>
+                                <div class = "player_squad_player_potential">
+                                    {{ player.potential }}
+                                </div>
+                                <div class = "player_squad_player_positions">
+                                    {% for position in player.player_positions %}
+                                        <div class = "player_squad_player_position">
+                                            {{ position }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class = "team_team_midfielders">
+            <div class = "team_info_header">
+                MIDFIELDERS
+            </div>
+            <div class = "team_team_midfielders_1">
+                {% for player in squad["midfielders"] %}
+                <div class = "player_squad_player">
+                        <div class = "player_squad_pic">
+                            <img src = "{{ player.player_face_url }}">
+                        </div>
+                        <div class = "player_squad_player_info">
+                            <div class = "player_squad_name_flag">
+                                <div class = "player_squad_player_flag">
+                                    <img src = "{{ player.nation_flag_url }}">
+                                </div>
+                                <div class = "player_squad_player_name">
+                                    <a href = "/players/{{ player.link_id }}">
+                                    {{ player.short_name }}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class = "player_squad_player_value_positions">
+                                <div class = "player_squad_player_overall">
+                                    {{ player.overall }}
+                                </div>
+                                <div class = "player_squad_player_potential">
+                                    {{ player.potential }}
+                                </div>
+                                <div class = "player_squad_player_positions">
+                                    {% for position in player.player_positions %}
+                                        <div class = "player_squad_player_position">
+                                            {{ position }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class = "team_team_forwards">
+            <div class = "team_info_header">
+                FORWARDS
+            </div>
+            <div class = "team_team_forwards_1">
+                {% for player in squad["forwards"] %}
+                <div class = "player_squad_player">
+                        <div class = "player_squad_pic">
+                            <img src = "{{ player.player_face_url }}">
+                        </div>
+                        <div class = "player_squad_player_info">
+                            <div class = "player_squad_name_flag">
+                                <div class = "player_squad_player_flag">
+                                    <img src = "{{ player.nation_flag_url }}">
+                                </div>
+                                <div class = "player_squad_player_name">
+                                <a href = "/players/{{ player.link_id }}">
+                                    {{ player.short_name }}
+                                </a>
+                                </div>
+                            </div>
+                            <div class = "player_squad_player_value_positions">
+                                <div class = "player_squad_player_overall">
+                                    {{ player.overall }}
+                                </div>
+                                <div class = "player_squad_player_potential">
+                                    {{ player.potential }}
+                                </div>
+                                <div class = "player_squad_player_positions">
+                                    {% for position in player.player_positions %}
+                                        <div class = "player_squad_player_position">
+                                            {{ position }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class = "team_latest_news">
+        1
+    </div>
+
+<script type = "text/javascript" src = "{{ url_for('static', filename = '/js/team.js')}}"></script>
+
+{% endblock %}

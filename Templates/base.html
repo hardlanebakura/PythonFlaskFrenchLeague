@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<link rel="shortcut icon" href="#">
+<link rel="stylesheet" href="{{ url_for('static', filename = '/css/base.css')}}">
+{% block head %}
+{% endblock %}
+
+</head>
+<body>
+
+<div class = "div1">
+    <div class = "header_1">
+        <div class = "league1logo"></div>
+        <div class = "header_11">
+    <div class = "matches_played">
+        LATEST MATCHES
+    </div>
+    {% for latest_match in latest_matches %}
+    <div class = "header_latest_match">
+        <div class = "header_latest_match_home_team">
+            <div class = "header_11111">
+                 <img src = "/./static/images/club_logos/{{ latest_match.home_team }}.png">
+            </div>
+            <div class = "header11112">
+                 {{ latest_match.home_team }}
+            </div>
+            <div class = "header11113">
+                 {{ latest_match.home_team_goals }}
+            </div>
+        </div>
+        <div class = "header_1112">
+            <div class = "header_11111">
+                 <img src = "../static/images/club_logos/{{ latest_match.away_team }}.png">
+            </div>
+            <div class = "header11112">
+                 {{ latest_match.away_team }}
+            </div>
+            <div class = "header11113">
+                 {{ latest_match.away_team_goals }}
+            </div>
+        </div>
+        </div>
+    {% endfor %}
+</div>
+        {% block h_1 %}
+        {% endblock %}
+    </div>
+    <div class = "div11">
+        <div class = "div111 header_menu">
+            <a href = "/news">NEWS</a>
+        </div>
+        <div class = "div112 header_menu">
+            <a href = "/players">PLAYERS</a>
+        </div>
+        <div class = "div113 header_menu">
+            <a href = "/teams">TEAMS</a>
+        </div>
+        <div class = "div114 header_menu">
+            <a href = "/statistics">STATISTICS</a>
+        </div>
+
+    </div>
+</div>
+
+{% block body %}
+{% endblock %}
+
+<div class = "menu">
+        <div class = "menu_1">
+            Copyright LFP 2020
+        </div>
+        <div class = "menu_1">
+            Data Policy
+        </div>
+        <div class = "menu_1">
+            Terms/Conditions
+        </div>
+        <div class = "menu_1">
+            Contact us
+        </div>
+        <div class = "menu_1">
+            Media
+        </div>
+</div>
+
+<script type = "text/javascript" src="{{ url_for('static', filename = '/js/base.js')}}"></script>
+</body>
+</html>

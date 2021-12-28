@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block h_1 %}
+
+<link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/players.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+<div class = "players_players">
+
+    <div class = "title_header">
+        Ligue 1 Uber Eats players
+    </div>
+
+{% for player in all_players %}
+
+    <div class = "players_player">
+        <div class = "player_player_name">
+            <a class = "players_player_link" href = "{{ player.player_id }}">
+            {{ player.short_name }}
+            </a>
+        </div>
+        <img class = "players_player_images" src = "{{ player.player_face_url }}">
+            <div class = "players_player_positions">
+                {% for position in player.player_positions %}
+                <div class = "players_player_position">
+                    {{ position }}
+                </div>
+                {% endfor %}
+            </div>
+            <div class = "players_player_overall">
+                {{ player.overall }}
+            </div>
+        {% if player.player_tags != "nan" %}
+            <div class = "players_player_tags">
+                {{ player.player_tags }}
+            </div>
+        {% endif %}
+        <img class = "players_club" src = "{{ player.club_logo_url }}">
+            <div class = "players_player_club">
+                {{ player.club_name }}
+            </div>
+    </div>
+
+{% endfor %}
+
+</div>
+
+<script type = "text/javascript" src = "/./static/js/players.js"></script>
+
+{% endblock %}

@@ -1,0 +1,331 @@
+{% extends 'base.html' %}
+
+{% block h_1 %}
+<script>
+    var team = {{ team|tojson }}
+    var clubs = {{ clubs|tojson }}
+    var team_salaries = {{ team_salaries|tojson }}
+</script>
+<link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/statistics.css')}}">
+{% endblock %}
+
+{% block body %}
+
+    <div class = "general_info_header">
+        Ligue 1 Uber Eats Statistics
+    </div>
+    <div class = "teams_team_overview">
+            <img src = "{{ url_for('static', filename = '/images/ratio_18_11_11_11.jpg')}}">
+        <div class = "teams_team_name">
+        STATISTICS
+        </div>
+    </div>
+
+    <div class = "team_menu">
+        <div class = "team_menu_option">
+            <a href = "/statistics/">
+                GENERAL
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/statistics/player_stats">
+                PLAYER STATS
+            </a>
+        </div>
+        <div class = "team_menu_option active_option">
+            <a href = "/statistics/team_stats">
+                TEAM STATS
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/statistics/fun_facts">
+                FUN FACTS
+            </a>
+        </div>
+        <div class = "select_club">
+
+        </div>
+
+    </div>
+
+    <div class = "team_info_header">
+        LIGUE 1 UBER EATS TEAM STATISTICS
+    </div>
+
+    <div class = "team_info_row">
+        <div class = "team_stats_general_info">
+            <div class = "team_info_header">
+                WEALTHIEST TEAMS
+            </div>
+    `       <div class = "team_stats_1">
+                <div class = "team_stats_team">
+                    <div class = "team_stats_1_logo">
+                    <img src = "../static/images/club_logos/{{ fifa_to_clubs[team_salaries['all_salaries'][0][0]] }}.png">
+                    </div>
+                    <div class = "team_stats_1_name">
+                    {{ team_salaries["all_salaries"][0][0] }}
+                    </div>
+                </div>
+                <div class = "team_stats_team_info">
+                    <div class = "team_stats_team_info_1">
+                        AVERAGE PLAYER VALUE
+                    </div>
+                    <div class = "team_stats_team_info_2">
+                        {{ team_salaries["all_salaries"][0][1] }}
+                    </div>
+                </div>
+            </div>
+            {% for i in range(1, team_salaries["highest_budgets"]|length ) %}
+            <div class = "team_stats_2">
+                <div class = "team_stats_2_name">
+                {{ team_salaries["highest_budgets"][i][0] }}
+                </div>
+                <div class = "team_stats_team_info_2">
+                {{ team_salaries["highest_budgets"][i][1] }}
+                </div>
+            </div>
+            {% endfor %}`
+        </div>
+        <div class = "team_stats_general_info">
+            <div class = "team_info_header">
+                POOREST TEAMS
+            </div>
+    `       <div class = "team_stats_1">
+                <div class = "team_stats_team">
+                    <div class = "team_stats_1_logo">
+                    <img src = "../static/images/club_logos/{{ fifa_to_clubs[team_salaries['lowest_budgets'][0][0]] }}.png">
+                    </div>
+                    <div class = "team_stats_1_name">
+                    {{ team_salaries["lowest_budgets"][0][0] }}
+                    </div>
+                </div>
+                <div class = "team_stats_team_info">
+                    <div class = "team_stats_team_info_1">
+                        AVERAGE PLAYER VALUE
+                    </div>
+                    <div class = "team_stats_team_info_2">
+                        {{ team_salaries["lowest_budgets"][0][1] }}
+                    </div>
+                </div>
+            </div>
+            {% for i in range(1, team_salaries["highest_budgets"]|length ) %}
+            <div class = "team_stats_2">
+                <div class = "team_stats_2_name">
+                {{ team_salaries["lowest_budgets"][i][0] }}
+                </div>
+                <div class = "team_stats_team_info_2">
+                {{ team_salaries["lowest_budgets"][i][1] }}
+                </div>
+            </div>
+            {% endfor %}`
+        </div>
+        <div class = "team_stats_general_info">
+            <div class = "team_info_header">
+                HIT TEAMS
+            </div>
+    `       <div class = "team_stats_1">
+                <div class = "team_stats_team">
+                    <div class = "team_stats_1_logo">
+                    <img src = "../static/images/club_logos/{{ fifa_to_clubs[team_salaries['overachieving_teams'][0]['name']] }}.png">
+                    </div>
+                    <div class = "team_stats_1_name">
+                    {{ team_salaries["overachieving_teams"][0]["name"] }}
+                    </div>
+                </div>
+                <div class = "team_stats_team_info">
+                    <div class = "team_stats_team_info_1">
+                        RANKS ABOVE TEAM VALUE RANK
+                    </div>
+                    <div class = "team_stats_team_info_2">
+                        {{ team_salaries["overachieving_teams"][0]["ranks_above_expectations"] }}
+                    </div>
+                </div>
+            </div>
+            {% for i in range(1, team_salaries["highest_budgets"]|length ) %}
+            <div class = "team_stats_2">
+                <div class = "team_stats_2_name">
+                {{ team_salaries["overachieving_teams"][i]["name"] }}
+                </div>
+                <div class = "team_stats_2_value">
+                {{ team_salaries["overachieving_teams"][i]["ranks_above_expectations"] }}
+                </div>
+            </div>
+            {% endfor %}`
+        </div>
+        <div class = "team_stats_general_info">
+            <div class = "team_info_header">
+                FLOP TEAMS
+            </div>
+    `       <div class = "team_stats_1">
+                <div class = "team_stats_team">
+                    <div class = "team_stats_1_logo">
+                    <img src = "../static/images/club_logos/{{ fifa_to_clubs[team_salaries['underachieving_teams'][0]['name']] }}.png">
+                    </div>
+                    <div class = "team_stats_1_name">
+                    {{ team_salaries["underachieving_teams"][0]["name"] }}
+                    </div>
+                </div>
+                <div class = "team_stats_team_info">
+                    <div class = "team_stats_team_info_1">
+                        RANKS BELOW TEAM VALUE RANK
+                    </div>
+                    <div class = "team_stats_team_info_2">
+                        {{ team_salaries["underachieving_teams"][0]["ranks_below_expectations"] }}
+                    </div>
+                </div>
+            </div>
+            {% for i in range(1, team_salaries["lowest_budgets"]|length ) %}
+            <div class = "team_stats_2">
+                <div class = "team_stats_2_name">
+                {{ team_salaries["underachieving_teams"][i]["name"] }}
+                </div>
+                <div class = "team_stats_2_value">
+                {{ team_salaries["underachieving_teams"][i]["ranks_below_expectations"] }}
+                </div>
+            </div>
+            {% endfor %}`
+        </div>
+    </div>
+
+    <div class = "team_info_row">
+        <div class = "team_stats_general_info">
+            <div class = "team_info_header">
+                BEST ATTACK
+            </div>
+    `       <div class = "team_stats_1">
+                <div class = "team_stats_team">
+                    <div class = "team_stats_1_logo">
+                    <img src = "../static/images/club_logos/{{ fifa_to_clubs[team_salaries['all_salaries'][0][0]] }}.png">
+                    </div>
+                    <div class = "team_stats_1_name">
+                    {{ clubs_to_fifa[goals_teams[0][0]["name"]] }}
+                    </div>
+                </div>
+                <div class = "team_stats_team_info">
+                    <div class = "team_stats_team_info_1">
+                        GOALS SCORED
+                    </div>
+                    <div class = "team_stats_team_info_2">
+                        {{ goals_teams[0][0]["gs"] }}
+                    </div>
+                </div>
+            </div>
+            {% for i in range(1, team_salaries["highest_budgets"]|length ) %}
+            <div class = "team_stats_2">
+                <div class = "team_stats_2_name">
+                {{ clubs_to_fifa[goals_teams[0][i]["name"]] }}
+                </div>
+                <div class = "team_stats_team_info_2">
+                {{ goals_teams[0][i]["gs"] }}
+                </div>
+            </div>
+            {% endfor %}`
+        </div>
+        <div class = "team_stats_general_info">
+            <div class = "team_info_header">
+                WORST DEFENSE
+            </div>
+    `       <div class = "team_stats_1">
+                <div class = "team_stats_team">
+                    <div class = "team_stats_1_logo">
+                    <img src = "../static/images/club_logos/{{ goals_teams[1][0]['name'] }}.png">
+                    </div>
+                    <div class = "team_stats_1_name">
+                    {{ goals_teams[1][0]["fifa_name"] }}
+                    </div>
+                </div>
+                <div class = "team_stats_team_info">
+                    <div class = "team_stats_team_info_1">
+                        GOALS CONCEEDED
+                    </div>
+                    <div class = "team_stats_team_info_2">
+                        {{ goals_teams[1][0]["gc"] }}
+                    </div>
+                </div>
+            </div>
+            {% for i in range(1, team_salaries["highest_budgets"]|length ) %}
+            <div class = "team_stats_2">
+                <div class = "team_stats_2_name">
+                {{ goals_teams[1][i]["fifa_name"] }}
+                </div>
+                <div class = "team_stats_team_info_2">
+                {{ goals_teams[1][i]["gc"] }}
+                </div>
+            </div>
+            {% endfor %}`
+        </div>
+        <div class = "team_stats_general_info">
+            <div class = "team_info_header">
+                BEST COUNTERATTACK
+            </div>
+    `       <div class = "team_stats_1">
+                <div class = "team_stats_team">
+                    <div class = "team_stats_1_logo">
+                    <img src = "../static/images/club_logos/{{ fifa_to_clubs[teams_with_best_counterattack[0][0]] }}.png">
+                    </div>
+                    <div class = "team_stats_1_name">
+                    {{ teams_with_best_counterattack[0][0] }}
+                    </div>
+                </div>
+                <div class = "team_stats_team_info">
+                    <div class = "team_stats_team_info_1">
+                        UPSETS OVER BETTER TEAMS
+                    </div>
+                    <div class = "team_stats_team_info_2">
+                        {{ teams_with_best_counterattack[0][1] }}
+                    </div>
+                </div>
+            </div>
+            {% for i in range(1, team_salaries["highest_budgets"]|length ) %}
+            <div class = "team_stats_2">
+                <div class = "team_stats_2_name">
+                {{ teams_with_best_counterattack[i][0] }}
+                </div>
+                <div class = "team_stats_2_value">
+                {{ teams_with_best_counterattack[i][1] }}
+                </div>
+            </div>
+            {% endfor %}`
+        </div>
+        <div class = "team_stats_general_info">
+            <div class = "team_info_header">
+                MOST FOREIGNERS
+            </div>
+    `       <div class = "team_stats_1">
+                <div class = "team_stats_team">
+                    <div class = "team_stats_1_logo">
+                    <img src = "../static/images/club_logos/{{ fifa_to_clubs[team_with_most_foreigners[0]['name']] }}.png">
+                    </div>
+                    <div class = "team_stats_1_name">
+                    {{ team_with_most_foreigners[0]["name"] }}
+                    </div>
+                </div>
+                <div class = "team_stats_team_info">
+                    <div class = "team_stats_team_info_1">
+                        FOREIGNERS
+                    </div>
+                    <div class = "team_stats_team_info_2">
+                        {{ team_with_most_foreigners[0]["foreigners"] }}
+                    </div>
+                </div>
+            </div>
+            {% for i in range(1, team_salaries["lowest_budgets"]|length ) %}
+            <div class = "team_stats_2">
+                <div class = "team_stats_2_name">
+                {{ team_with_most_foreigners[i]["name"] }}
+                </div>
+                <div class = "team_stats_2_value">
+                {{ team_with_most_foreigners[i]["foreigners"] }}
+                </div>
+            </div>
+            {% endfor %}`
+        </div>
+    </div>
+
+    <div class = "rank_to_foreigners_relationship">
+        <img src = "{{ url_for('static', filename = '/images/teamforeignerstorankrelationshipchart.png') }}">
+    </div>
+
+<script type = "text/javascript" src = "{{ url_for('static', filename = '/js/statistics.js')}}"></script>
+
+{% endblock %}

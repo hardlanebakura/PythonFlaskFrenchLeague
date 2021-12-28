@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class = "season_1">
+    Season 1
+</div>
+<div class = "league_table_header">
+    <div class = "club_name">Club</div>
+    <div class = "empty e1">&nbsp;</div>
+    <div class = "played_matches  ts">PM</div>
+    <div class = "w ts">W</div>
+    <div class = "d  ts">D</div>
+    <div class = "l  ts">L</div>
+    <div class = "pts  ts">Pts</div>
+    <div class = "gs  ts">GS</div>
+    <div class = "gc  ts">GC</div>
+    <div class = "gd  ts">GD</div>
+    <div class = "last5matches">Last 5 matches</div>
+</div>
+
+{% for i in range (20) %}
+<div class = "league_1">
+<div class = "standings_c" style = "background-color:#4285F4"></div>
+<div class = "rank">{{ i + 1 }}	</div>
+<div class = "standings_b"><img src = "./static/images/{{ clubs[i]['name'] }}.png" height = "24px" width = "24px"></div>
+    <div class = "standings_a">{{ clubs[i]['name'] }}</div>
+    <div class = "empty e_1">&nbsp;</div>
+    <div class = "played_matches  ts ts_1">{{ clubs[i]['pm'] }}</div>
+    <div class = "w ts ts_1">{{ clubs[i]['w'] }}</div>
+    <div class = "d  ts ts_1">{{ clubs[i]['d'] }}</div>
+    <div class = "l  ts ts_1">{{ clubs[i]['l'] }}</div>
+    <div class = "pts ts ts_1">{{ clubs[i]['pts'] }}</div>
+    <div class = "gs  ts ts_1">{{ clubs[i]['gs'] }}</div>
+    <div class = "gc  ts ts_1">{{ clubs[i]['gc'] }}</div>
+    <div class = "gd  ts ts_1">{{ clubs[i]['gd'] }}</div>
+
+    {% for j in range(5) %}
+    <div class = "last5_matches_1">
+        {% if clubs[i]['last_5'][j] == 'w' %}
+            <img src = "{{ url_for('static', filename = '/images/winicon.svg') }}">
+            {% elif clubs[i]['last_5'][j] == 'd' %}
+                <img src = "{{ url_for('static', filename = '/images/drawicon.svg') }}">
+            {% else %}
+                <img src = "{{ url_for('static', filename = '/images/loseicon.svg') }}">
+        {% endif %}
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

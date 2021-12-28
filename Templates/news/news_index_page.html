@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block h_1 %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@700&display=swap" rel="stylesheet">
+<link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/news.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class = "news_header">
+    LATEST NEWS
+</div>
+
+<div class = "news_news">
+
+    <div class = "news_news_row">
+        <a href = "/news/1">
+            <img class = "news_image_link" src = "{{ url_for('static', filename = 'images/news/Ben_Yedder.jpg') }}">
+            <div class = "news_news_header">
+                <div class = "news_news_header_category">
+                    <div class = "news_news_header_category_title">
+                        FOCUS
+                    </div>
+                    <div class = "news_news_header_category_date">
+                        15/12/2021 - 12:43
+                    </div>
+                </div>
+                <div class = "news_news_title">
+                    Ben Yedder
+                </div>
+            </div>
+        </a>
+        <a href = "/news/2">
+            <img class = "news_image_link"  src = "https://www.getfootballnewsfrance.com/assets/fbl-fra-ligue1-reims-metz-806x537.jpg') }}">
+            <div class = "news_news_header">
+                <div class = "news_news_header_category">
+                    <div class = "news_news_header_category_title">
+                        FOCUS
+                    </div>
+                    <div class = "news_news_header_category_date">
+                        15/12/2021 - 12:43
+                    </div>
+                </div>
+                <div class = "news_news_title">
+                    David Guion
+                </div>
+            </div>
+        </a>
+        <a href = "/news/4">
+            <img class = "news_image_link"  src = "{{ url_for('static', filename = 'images/news/Contract_Extensions.jpg') }}">
+            <div class = "news_news_header">
+                <div class = "news_news_header_category">
+                    <div class = "news_news_header_category_title">
+                        NEWS
+                    </div>
+                    <div class = "news_news_header_category_date">
+                        15/12/2021 - 12:43
+                    </div>
+                </div>
+                <div class = "news_news_title">
+                    Contract extensions
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class = "news_news_row">
+        <a href = "/news/3">
+            <img class = "news_image_link"  src = "{{ url_for('static', filename = 'images/news/podcast_logo.png') }}">
+            <div class = "news_news_header">
+                <div class = "news_news_header_category">
+                    <div class = "news_news_header_category_title">
+                        PODCAST
+                    </div>
+                    <div class = "news_news_header_category_date">
+                        15/12/2021 - 12:43
+                    </div>
+                </div>
+                <div class = "news_news_title">
+                    Official podcast
+                </div>
+            </div>
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,86 @@
+.players_player {
+
+display:flex;
+justify-content:center;
+align-items:center;
+width: fit-content;
+margin-left: 34%;
+
+}
+
+.players_player_link, players_player_link:visited {
+
+text-decoration:none;
+color:#000;
+
+}
+
+.title_header {
+
+height: 40px;
+font-weight:bold;
+color: #e83e8c;
+font-size: 23px;
+letter-spacing: .04em;
+line-height: 1.5;
+margin-top:10px;
+margin-bottom:40px;
+padding-top:27px;
+text-transform:uppercase;
+
+}
+
+.players_header {
+
+margin-top:39px;
+margin-bottom:40px;
+
+}
+
+.player_player_name {
+
+width:210px;
+text-align:left;
+
+}
+
+.players_player_positions {
+
+width:170px;
+margin-top:1px;
+margin-left: 14px;
+color:#fff;
+display:flex;
+
+}
+
+.players_player_positions > * {
+
+height: 26px;
+width: 40px;
+padding-top: 4px;
+margin-inline:4px;
+background-color:yellow;
+
+}
+
+.players_club {
+
+margin-top:4px;
+margin-inline:10px;
+
+}
+
+.players_player_images {
+
+height:70px;
+width:70px;
+
+}
+
+.players_players {
+
+margin-top:40px;
+margin-bottom:40px;
+
+}

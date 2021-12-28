@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block h_1 %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@700&display=swap" rel="stylesheet">
+<link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/news.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+<div class = "news_title">
+    <img src = "https://www.getfootballnewsfrance.com/assets/fbl-fra-ligue1-reims-metz-806x537.jpg">
+    <div class = "news_title_1">
+    David Guion – Ligue 1’s most underrated manager
+    </div>
+</div>
+
+<div class = "news_main">
+    <div class = "news_details">
+        Published on 08/12/2021 at 11:00
+    </div>
+    <div class = "news_mini_title">
+        <div class = "news_mini_title_header">
+            David Guion’s success since taking over at Stade de Reims has been nothing short of remarkable. In his first season, the 52-year-old led his side to a Ligue 2 title, which he quickly followed up with an underappreciated ninth place finish in Ligue 1. In 2019/20 he’s gone even further – helping Reims to fifth place in the table before the virus-imposed break. What is more, among Europe’s top five leagues, only Real Madrid have let in fewer goals – a feat Guion has accomplished with Ligue 1’s fifth smallest payroll.
+        </div>
+    </div>
+    <div class = "news_content">
+        Nevertheless, the breadth of Guion’s achievements have gone largely unnoticed – his name well down the list of the continent’s most promising skippers. A significant factor being that Reims are not aesthetically pleasing – at least not in a traditional sense. Guion’s patient, defensive style may not be tailor-made to revelling neutrals, but it does attain results and though less attractive to the untrained eye, it serves as an excellent barometer for top-class tactical nous and man-management skills.
+    </div>
+    <div class = "news_mini_title_header">
+        The Medium Block
+    </div>
+    <div class = "news_content">
+        So much of what Stade de Reims do under Guion stems from a near impenetrable medium block. The Le Mans native has developed an air-tight ten-man unit in midfield and week-after-week it drives opponents nuts. Defensively, the basic philosophy is to keep the attacking side from possessing the ball in the final-third and to stop the game from getting stretched out. This means three compact, narrow lines in the middle of the park.
+        Reims rarely press, in fact the club is among the bottom dwellers in terms of overall pressures per ninety minutes. When Reims do press it is very deliberate and yields a 30-percent success rate, which puts them near the top of the league in terms of efficiency. What is more, Guion’s side is mere mid-table in terms of overall tackles and record few blocked shots. However, where Reims do excel is in interceptions.
+
+        By engaging in such a constricted shape, Reims limit sides from playing through their lines and force opponents to move the ball toward the wings. Here Guion’s side are able to shift effectively, create overloads, use the touchline to condense space and recover the ball.
+
+        The basic premise is simple, nonetheless the execution involves balletic interplay between each outfield player, as well as complete team buy-in. The system does not work if the players are not patient or are unwilling to put in a defensive shift that will largely go unappreciated publicly. The fact that Guion seems to have a squad full of enthusiastic participants is a testament to his man-management skills.
+
+        Tactically, Reims medium block relies heavily on the play of the two central defenders, Axel Disasi and Yunis Abdelhamid – the tandem lead the squad in minutes played and are responsible for marshalling the defence, helping it to hold a relatively high and flat backline.
+
+    </div>
+    <div class = "news_1_image">
+        <img src = "{{ url_for('static', filename = '/images/news/Guion_1.png') }}">
+    </div>
+    <div class = "news_img_header">
+        Rennes 0 – 1 Reims (6 October 2019) – Reims medium block adjusting to Rennes switch of play.
+    </div>
+    <div class = "news_content">
+        The above diagram illustrates the flatness of the Reims backline, how little space there is between the three defensive lines and as a by-product, how condensed all ten outfield players are in the middle of the park. What is more, it highlights how Rennes have essentially abandoned any attempt to play through the middle of the park in this particular fixture. From this point forward, Rennes primarily looked to hit balls over the top or play through the wings.
+
+        The connection between Reims’ two forwards is fundamental in forcing the opposition into this shape and toward the flanks. In Guion’s system, both attacking players get behind the ball and screen for any potential passes into the midfield. Neither forward is interested in pressing the opposition ball-carrier; instead they aim to lure them into wing passes. This is Reims’ rest defence and it helps to preserve the energy of the two forwards, who need to be able to break quickly during offensive transitions (more on that later).
+
+    </div>
+    <div class = "news_1_image">
+        <img src = "{{ url_for('static', filename = '/images/news/Guion_2.png') }}">
+    </div>
+    <div class = "news_content">
+        Once the opposition passes the ball to the wing it acts as a trigger for Reims to try and initiate a recovery. In the above diagram, PSG has fallen into the trap by shifting the ball out wide to Layvin Kurzawa, where he is joined by two teammates, who are quickly outnumbered by Reims defenders. In this particular circumstance, it will be Donis who recovers the ball and starts the counter-attack. It is important to note that Reims are not necessarily pressing PSG, but rather using the touchline and the shape of its four defenders to limit the space with which Paris have to work. Reims system focuses on eliminating defensive risk; the aim is to recover shape and frustrate the opposition.
+
+        Guion’s system is predicated on putting the offensive team in positions to make errors. It’s not a fundamentally new idea, it is a tenant of several defensive philosophies and has been propagated in recent years by Diego Simeone and José Mourinho, among others. It requires an equal amount of training and belief as a complex offensive system, but it is more methodical and less glamourous.
+    </div>
+    <div class = "news_mini_title_header">
+        Offensive Transitions
+    </div>
+    <div class = "news_content">
+        As mentioned earlier, Reims iares not a pressing side and instead endeavour to recover their defensive shape as often as possible. Moreover, while there are a number of underrated players at Guion’s disposal, his midfield is more utilitarian than it is technical. Therefore, the likelihood of Reims indulging in lengthy periods of possession in the hopes of developing a complex passing move is unrealistic.
+
+        Where Reims do possess skill and pace is along the flanks and at the centre-forward position; players such as Mathieu Cafaro, Moussa Doumbia, Hassane Kamara and Boulaye Dia are effective counter-attacking threats. This helps explain why Guion is so intent on generating recoveries along the midfield flanks.
+    </div>
+    <div class = "news_1_image">
+        <img src = "{{ url_for('static', filename = '/images/news/Guion_3.png') }}">
+    </div>
+    <div class = "news_img_header">
+        Rennes 0 – 1 Reims (6 October 2019) – Reims wing recovery leading to counter-attack and goal.
+    </div>
+    <div class = "news_content">
+        The above illustrates the start of a typical Reims counter-attack after a wing recovery. Camavinga carried the ball to the flank where he quickly found himself out-numbered by the four Reims defenders. Hassane recovered the ball and swiftly turned it up field. This move will consist of four passes and culminate in a Dia goal.
+
+This is an example of how and why Reims aim to catch teams during defensive transitions in the middle of the park. First and foremost, Guion’s side recovers the ball in good field position; obtaining possession in midfield simply means it takes fewer passes to manoeuvre into a shooting position as compared to a deeper recovery. Being situated along the flank means there is more space to run into – Reims can avoid trying to progress the ball through a crowded midfield. Finally, because Rennes are in defensive transition, there are fewer players behind the ball and by committing only four men, Reims can create a numerical advantage.
+
+Once again this tactic feeds into Guion’s defensive mindset, as it allows the two central midfielders to remain deep and guard against any potential counter-attacks. In many of these circumstances the full-backs will push forward, but in doing so, act as late runners arriving at the edge of the area. Meaning that while Reims are committing to an attacking move, the side will still have six players behind the ball.
+
+Reims generate very few chances – owning the third worst non-penalty expected goals in the league. Furthermore, their non-penalty expected goals per shot is tied for last in the top division, meaning the shots they do generate are of low-quality. Coincidentally, players such as Dia need to be extremely clinical with their finishing. Fortunately for Guion, the former Championnat 2 player has been just that – overachieving his non-penalty expected goals by 1.5.
+    </div>
+    <div class = "news_mini_title_header">
+        Efficiency Over Beauty
+    </div>
+    <div class = "news_content">
+        Reims are frustrating. They can be frustrating to watch and are certainly frustrating to play against. Pick out any of Reims 10 wins this season and watch as their opponents slowly grow infuriated by their resolute defence. Technically gifted performers lash out with cynical fouls, or throw their hands up in exasperation. It looks like it should be easy – they have seen a 4-4-2 medium block a thousand times – but it is not. Guion’s side have won every league match that they have played against the top four this season and their cleansheet against PSG was the first kept against the French giant since Thomas Tuchel arrived.
+
+        Guion should be celebrated by French football; he has taken a side from Ligue 2 and in three seasons brought them to within touching distance of European football. This is a remarkable story predicated on hard work and top-notch individual and team performances. Up to and to this point Guion has been wildly underrated and it is time for that to change.
+    </div>
+</div>
+
+{% endblock %}
+

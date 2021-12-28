@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block h_1 %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@700&display=swap" rel="stylesheet">
+<link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/news.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+<div class = "news_title">
+    <img src = "{{ url_for('static', filename = 'images/news/Ben_Yedder.jpg') }}">
+    <div class = "news_title_1_1">
+    Ben Yedder: Ligue 1 Uber Eats' best-ever super-sub!
+    </div>
+</div>
+
+<div class = "news_main">
+    <div class = "news_details">
+        Published on 15/12/2021 at 12:43
+    </div>
+    <div class = "news_mini_title">
+        <div class = "news_mini_title_header">
+            AS Monaco striker Wissam Ben Yedder holds the record for goals as a substitute in a calendar year in Ligue 1 Uber Eats and is just one strike away from equalling the Europe-wide benchmark in the 21st century.
+        </div>
+    </div>
+    <div class = "news_content">
+        When AS Monaco's line-up is announced, it's rarely a surprise to see Wissam Ben Yedder's name among the substitutes. Since the start of the calendar year and Monaco boss Niko Kovac's desire to take advantage of his hit-man's immediate impact in the second half, the No10 has become accustomed to starting games on the bench. But WBY is not just another substitute - when he appears on the pitch, he systematically takes the captain's armband, and on a frightening number of occasions, adds his name to the scoresheet.
+    </div>
+    <div class = "news_mini_title_header">
+        Nine goals off the bench!
+    </div>
+    <div class = "news_2_image">
+        <img src = "{{ url_for('static', filename = '/images/news/Ben_Yedder_1.jpg') }}">
+    </div>
+    <div class = "news_content">
+        In the opening match Ligue 1 Uber Eats's Round 14, the French international pulled his team out of the fire against LOSC, scoring the equaliser in the last ten minutes (2-2). On Sunday, the former Toulouse FC player, once again a substitute at kick-off, completed his side's success by scoring the final goal in the 4-0 win over FC Metz in their Round 17 match at the Stade Louis-II. And plenty of other examples can be cited, as this scenario has become so common in 2021. In total, Wissam Ben Yedder has scored nine goals as a substitute in 2021, a record for a player in a calendar year in Ligue 1 Uber Eats.
+
+    </div>
+        <div class = "news_mini_title_header">
+        Goals as a substitute over a calendar year in Ligue 1 Uber Eats history:
+    </div>
+    <div class = "news_content">
+        <ol>
+            <li style = "font-weight:bold"> Wissam Ben Yedder (AS Monaco): 2021, nine goals </li>
+            <li> Samuel Ipoua (OGC Nice): 1995, seven goals </li>
+            <li> Souleymane Camara (Montpellier HSC): 2011, six goals </li>
+            <li> Michy Batshuayi (OM): 2015, six goals </li>
+            <li> Kamil Grosicki (Stade Rennais): 2016, six goals </li>
+            <li> Robert Beric (AS Saint-Etienne): 2018, five goals </li>
+            <li> Pascal Nouma (PSG): 1995, five goals </li>
+            <li> Guido Carrillo (AS Monaco): 2016, five goals </li>
+            <li> Anthony Modeste (Girondins de Bordeaux): 2011, five goals </li>
+        </ol>
+    </div>
+    <div class = "news_2_image">
+        <img src = "{{ url_for('static', filename = '/images/news/Ben_Yedder_2.jpg') }}">
+    </div>
+    <div class = "news_content">
+        In 2018, Spanish striker Paco Alcacer scored ten goals off the bench and thus holds the record for the 21st century. But Wissam Ben Yedder could equal this record if he were to score off the bench at Paris Saint-Germain (R18) or against Stade Rennais (R19). It all depends on how Niko Kovac wants to utilise the talent of his star striker in the next two matches.
+    </div>
+    <div class = "news_mini_title_header">
+        Goals as a substitute in Europe's top five leagues in the 21st century:
+    </div>
+    <div class = "news_content">
+        <ol>
+            <li> Paco Alcácer (FC Barcelona/Borussia Dortmund): 2018, ten goals </li>
+            <li style = "font-weight:bold"> Wissam Ben Yedder (AS Monaco): 2021, nine goals </li>
+            <li> Ángel Rodríguez (Getafe): 2019, nine goals </li>
+            <li> Álvaro Morata (Real Madrid/Juventus): 2014, nine goals </li>
+            <li> Luis Muriel (Atalanta Bergamo): 2020, eight goals </li>
+            <li> Olivier Giroud (Arsenal): 2017, seven goals </li>
+            <li> Markus Rosenberg (Werder Bremen): 2007, seven goals </li>
+            <li> Márcio Amoroso (Borussia Dortmund): 2002, seven goals </li>
+            <li> Edin Dzeko (Manchester City): 2012, seven goals </li>
+            <li> Adam Le Fondre (Reading): 2013, seven goals </li>
+        </ol>
+    </div>
+</div>
+
+
+
+{% endblock %}
+

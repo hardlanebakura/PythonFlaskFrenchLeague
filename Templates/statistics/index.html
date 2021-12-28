@@ -1,0 +1,319 @@
+{% extends 'base.html' %}
+
+{% block h_1 %}
+<script>
+    var team = {{ team|tojson }}
+    var clubs = {{ clubs|tojson }}
+    var highest_match_capacity = {{ highest_match_capacity|tojson }}
+</script>
+<link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/statistics.css')}}">
+{% endblock %}
+
+{% block body %}
+
+    <div class = "general_info_header">
+        Ligue 1 Uber Eats Statistics
+    </div>
+    <div class = "teams_team_overview">
+            <img src = "{{ url_for('static', filename = '/images/ratio_18_11_11_11.jpg')}}">
+        <div class = "teams_team_name">
+        STATISTICS
+        </div>
+    </div>
+
+    <div class = "team_menu">
+        <div class = "team_menu_option active_option">
+            <a href = "/statistics/">
+                GENERAL
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/statistics/player_stats">
+                PLAYER STATS
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/statistics/team_stats">
+                TEAM STATS
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/statistics/fun_facts">
+                FUN FACTS
+            </a>
+        </div>
+        <div class = "select_club">
+
+        </div>
+
+    </div>
+
+    <div class = "team_info">
+        <div class = "team_info_row">
+        <div class = "team_top_scorers">
+            <div class = "team_info_header" style = "margin-top: -155px;">
+                TOP SCORERS
+            </div>
+            <div class = "team_top_scorer">
+                <a href = "/players/{{ top_scorers[0].link_id }}">
+                    <div class = "team_top_scorer_image">
+                    <img src = "{{ top_scorers[0].player_face_url }}">
+                    </div>
+                    {{ top_scorers[0].short_name }}
+                    {{ top_scorers[0].goals }}
+                </a>
+            </div>
+            {% for i in range(1, 10) %}
+            <div class = "team_scorer">
+                {{ top_scorers[i].short_name }}
+                {{ top_scorers[i].goals }}
+            </div>
+            {% endfor %}
+        </div>
+        <div class = "team_general_info">
+            <div class = "team_info_header" style = "margin-top: -155px;">
+                TOP ASSISTS
+            </div>
+            <div class = "team_top_scorer">
+                <a href = "/players/{{ top_assists[0].link_id }}">
+                    <div class = "team_top_scorer_image">
+                    <img src = "{{ top_assists[0].player_face_url }}">
+                    </div>
+                    {{ top_assists[0].short_name }}
+                    {{ top_assists[0].goals }}
+                </a>
+            </div>
+            {% for i in range(1, 10) %}
+            <div class = "team_scorer">
+                {{ top_assists[i].short_name }}
+                {{ top_assists[i].goals }}
+            </div>
+            {% endfor %}
+        </div>
+        <div class = "team_general_info" style = "margin-left:14px;">
+            <div class = "team_info_header" style = "margin-top: -155px;">
+                TOP MANAGERS
+            </div>
+            <div class = "team_top_scorer">
+                    <div class = "team_top_scorer_image">
+                    <img src = "{{ top_assists[0].player_face_url }}">
+                    </div>
+                    {{ best_managers[0]["coach"] }}
+            </div>
+            {% for i in range(1, 10) %}
+            <div class = "team_scorer">
+                {{ best_managers[i]["coach"] }}
+            </div>
+            {% endfor %}
+        </div>
+        <div class = "team_general_info">
+            <div class = "team_info_header">
+                GENERAL
+            </div>
+            <div class = "statistics_general_statistics">
+                <div class = "team_general_info_bg">
+                    <div class = "team_general_info_logo">
+                        <img src = "{{ url_for('static', filename = '/images/league1logo.png') }}">
+                    </div>
+                </div>
+                <div class = "statistics_general_statistics_list">
+                    <div class = "statistics_general_statistics_list_item">
+                        <div class = "statistics_general_statistics_list_item_1">
+                            Matches played
+                        </div>
+                        <div class = "statistics_general_statistics_list_item_2">
+                            180
+                        </div>
+                    </div>
+                    <div class = "statistics_general_statistics_list_item">
+                        <div class = "statistics_general_statistics_list_item_1">
+                            Total balls played
+                        </div>
+                        <div class = "statistics_general_statistics_list_item_2">
+                            231390
+                        </div>
+                    </div>
+                    <div class = "statistics_general_statistics_list_item">
+                        <div class = "statistics_general_statistics_list_item_1">
+                            Players used
+                        </div>
+                        <div class = "statistics_general_statistics_list_item_2">
+                            500
+                        </div>
+                    </div>
+                    <div class = "statistics_general_statistics_list_item">
+                        <div class = "statistics_general_statistics_list_item_1">
+                            Substitutions
+                        </div>
+                        <div class = "statistics_general_statistics_list_item_2">
+                            1509
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class = "team_info_row">
+        <div class = "team_top_scorers">
+            <div class = "team_info_header" style = "margin-top:-15px">
+                MATCH WITH MOST GOALS
+            </div>
+            <div class = "statistics_one_match">
+                <div class = "statistics_one_match_home_team">
+                    <img src = '../static/images/club_logos/{{ match_most_goals["home_team"] }}.png'>
+                    <div class = "statistics_one_match_home_team_name">
+                        {{ match_most_goals["home_team"] }}
+                    </div>
+                    <div class = "statistics_one_match_home_team_goals">
+                        {{ match_most_goals["home_team_goals"] }}
+                    </div>
+                </div>
+                <div class = "statistics_one_match_away_team">
+                    <img src = '../static/images/club_logos/{{ match_most_goals["away_team"] }}.png'>
+                    <div class = "statistics_one_match_away_team_name">
+                        {{ match_most_goals["away_team"] }}
+                    </div>
+                    <div class = "statistics_one_match_away_team_goals">
+                        {{ match_most_goals["away_team_goals"] }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "team_general_info" style = "height:301px">
+            <div class = "team_info_header" style = "margin-top:-15px">
+                MATCH WITH LEAST GOALS
+            </div>
+            <div class = "statistics_one_match">
+                <div class = "statistics_one_match_home_team">
+                    <img src = '../static/images/club_logos/{{ match_least_goals["home_team"] }}.png'>
+                    <div class = "statistics_one_match_home_team_name">
+                        {{ match_least_goals["home_team"] }}
+                    </div>
+                    <div class = "statistics_one_match_home_team_goals">
+                        {{ match_least_goals["home_team_goals"] }}
+                    </div>
+                </div>
+                <div class = "statistics_one_match_away_team">
+                    <img src = '../static/images/club_logos/{{ match_least_goals["away_team"] }}.png'>
+                    <div class = "statistics_one_match_away_team_name">
+                        {{ match_least_goals["away_team"] }}
+                    </div>
+                    <div class = "statistics_one_match_away_team_goals">
+                        {{ match_least_goals["away_team_goals"] }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "general_info_u" style = "height:347px">
+            <div class = "team_info_header">
+                BIGGEST UPSET
+            </div>
+            <div class = "upset">
+                <div class = "upset_home_team">
+                    <img src = '../static/images/club_logos/{{ biggest_upset["home_team"] }}.png'>
+                    <div class = "upset_home_team_name">
+                        {{ biggest_upset["home_team"] }}
+                    </div>
+                    <div class = "upset_home_team_goals">
+                        {{ biggest_upset["home_team_goals"] }}
+                    </div>
+                </div>
+                <div class = "upset_additional" style = "margin-top:17px">
+                    Rank difference {{ biggest_upset["rank_difference"] }}
+                </div>
+                <div class = "upset_away_team">
+                    <img src = '../static/images/club_logos/{{ biggest_upset["away_team"] }}.png'>
+                    <div class = "upset_away_team_name">
+                        {{ biggest_upset["away_team"] }}
+                    </div>
+                    <div class = "upset_away_team_goals">
+                        {{ biggest_upset["away_team_goals"] }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "team_general_info" style = "height:347px">
+            <div class = "team_info_header">
+                HIGHEST ATTENDANCE
+            </div>
+            <div class = "statistics_one_match">
+                <div class = "statistics_one_match_home_team">
+                    <img src = '../static/images/club_logos/{{ highest_match_capacity[0]["home_team"] }}.png'>
+                    <div class = "statistics_one_match_home_team_name">
+                        {{ highest_match_capacity[0]["home_team"] }}
+                    </div>
+                    <div class = "statistics_one_match_home_team_goals">
+                        {{ highest_match_capacity[0]["home_team_goals"] }}
+                    </div>
+                </div>
+                <div class = "statistics_one_match_additional">
+                    Attendance {{ highest_match_capacity[1] }}
+                </div>
+                <div class = "statistics_one_match_away_team">
+                    <img src = '../static/images/club_logos/{{ highest_match_capacity[0]["away_team"] }}.png'>
+                    <div class = "statistics_one_match_away_team_name">
+                        {{ highest_match_capacity[0]["away_team"] }}
+                    </div>
+                    <div class = "statistics_one_match_away_team_goals">
+                        {{ highest_match_capacity[0]["away_team_goals"] }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+<div class = "teams_ranking">
+<div class = "season_1">
+    Ligue 1 Uber Eats rankings
+</div>
+<div class = "league_table_header">
+    <div class = "club_name">Club</div>
+    <div class = "empty e1">&nbsp;</div>
+    <div class = "played_matches  ts">PM</div>
+    <div class = "w ts">W</div>
+    <div class = "d  ts">D</div>
+    <div class = "l  ts">L</div>
+    <div class = "pts  ts">Pts</div>
+    <div class = "gs  ts">GS</div>
+    <div class = "gc  ts">GC</div>
+    <div class = "gd  ts">GD</div>
+    <div class = "last5matches">Last 5 matches</div>
+</div>
+
+{% for i in range (20) %}
+<div class = "league_1">
+<div class = "standings_c" style = "background-color:#4285F4"></div>
+<div class = "rank">{{ i + 1 }}	</div>
+<div class = "standings_b"><img src = "../static/images/club_logos/{{ clubs[i]['name'] }}.png" height = "24px" width = "24px"></div>
+    <div class = "standings_a">{{ clubs[i]['name'] }}</div>
+    <div class = "empty e_1">&nbsp;</div>
+    <div class = "played_matches  ts ts_1">{{ clubs[i]['pm'] }}</div>
+    <div class = "w ts ts_1">{{ clubs[i]['w'] }}</div>
+    <div class = "d  ts ts_1">{{ clubs[i]['d'] }}</div>
+    <div class = "l  ts ts_1">{{ clubs[i]['l'] }}</div>
+    <div class = "pts ts ts_1">{{ clubs[i]['pts'] }}</div>
+    <div class = "gs  ts ts_1">{{ clubs[i]['gs'] }}</div>
+    <div class = "gc  ts ts_1">{{ clubs[i]['gc'] }}</div>
+    <div class = "gd  ts ts_1">{{ clubs[i]['gd'] }}</div>
+
+    {% for j in range(5) %}
+    <div class = "last5_matches_1">
+        {% if clubs[i]['last_5'][j] == 'w' %}
+            <img src = "{{ url_for('static', filename = '/images/winicon.svg') }}">
+            {% elif clubs[i]['last_5'][j] == 'd' %}
+                <img src = "{{ url_for('static', filename = '/images/drawicon.svg') }}">
+            {% else %}
+                <img src = "{{ url_for('static', filename = '/images/loseicon.svg') }}">
+        {% endif %}
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endfor %}
+</div>
+    </div>
+
+<script type = "text/javascript" src = "{{ url_for('static', filename = '/js/statistics.js')}}"></script>
+
+{% endblock %}

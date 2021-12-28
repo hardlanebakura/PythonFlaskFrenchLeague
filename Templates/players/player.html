@@ -1,0 +1,658 @@
+{% extends 'base.html' %}
+
+{% block h_1 %}
+<link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/player.css')}}">
+{% endblock %}
+
+{% block body %}
+
+<div class = "player">
+
+    <div class = "player_diagram">
+
+        <div class = "player_diagram_overall">
+            <div class = "player_diagram_header">
+                Real overall rating
+            </div>
+            <img class = "pitch_img" src = "https://cdn.sofifa.net/img/field.png">
+            <div class = "player_forward_positions_1">
+                <div class = "player_positions_row">
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            LS
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.ls }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            ST
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.st }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            RS
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.rs }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "player_forward_positions_2">
+                <div class = "player_positions_row">
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            LW
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.lw }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            LF
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.lf }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            CF
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.cf }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            RF
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.rf }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            RW
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.rw }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "player_midfield_positions_1">
+                <div class = "player_positions_row">
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            LAM
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.lam }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            CAM
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.cam }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            RAM
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.ram }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "player_midfield_positions_2">
+                <div class = "player_positions_row">
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            LM
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.lm }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            LCM
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.lcm }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            CM
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.cm }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            RCM
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.rcm }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            RM
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.rm }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "player_defense_positions_1">
+                <div class = "player_positions_row">
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            LWB
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.lwb }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            LDM
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.ldm }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            CDM
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.cdm }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            RDM
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.rdm }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            RWB
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.rwb }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "player_defense_positions_1">
+                <div class = "player_positions_row">
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            LB
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.lb }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            LCB
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.lcb }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            CB
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.cb }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            RCB
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.rcb }}
+                        </div>
+                    </div>
+                    <div class = "player_position_1">
+                        <div class = "player_position_header">
+                            RB
+                        </div>
+                        <div class = "player_position_value">
+                            {{ player.rb }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "player_goalkeeping">
+                <div class = "player_position_1">
+                    <div class = "player_position_header">
+                        GK
+                    </div>
+                    <div class = "player_position_value">
+                        {{ player.gk }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "player_diagram_diagram">
+            <div class = "player_diagram_header">
+                <div class = "player_diagram_header" style = "transform:translateY(-460px)">
+                    SKILL DIAGRAM
+                </div>
+                <img src = "{{ url_for('static', filename = '/images/player_skill_diagram.png') }}">
+            </div>
+        </div>
+
+        <div class = "player_diagram_similar">
+            <div class = "player_diagram_header">
+                Similar players
+            </div>
+            <div class = "player_diagram_header_value">
+                {% for player in similar_players %}
+                <div class = "player_diagram_player">
+                        <div class = "player_diagram_pic">
+                            <img src = "{{ player.player_face_url }}">
+                        </div>
+                        <div class = "player_diagram_player_info">
+                            <div class = "player_diagram_name_flag">
+                                <div class = "player_diagram_player_flag">
+                                    <img src = "{{ player.nation_flag_url }}">
+                                </div>
+                                <div class = "player_diagram_player_name">
+                                    <a href = "/players/{{ player.link_id }}">
+                                    {{ player.short_name }}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class = "player_diagram_player_value_positions">
+                                <div class = "player_diagram_player_overall">
+                                    {{ player.overall }}
+                                </div>
+                                <div class = "player_diagram_player_potential">
+                                    {{ player.potential }}
+                                </div>
+                                <div class = "player_diagram_player_positions">
+                                    {% for position in player.player_positions %}
+                                        <div class = "player_diagram_player_position">
+                                            {{ position }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+    <div class = "player_player">
+        <div class = "player_player_info_1">
+                <img src = "{{ player.player_face_url }}">
+                    <div class = "player_player_info_1_1">
+                <div class = "player_player_name">
+                    {{ player.long_name }}
+                </div>
+                <div class = "player_player_info_1_2">
+                    <div class = "player_player_nationality">
+                        <img src = "{{ player.nation_flag_url }}">
+                    </div>
+                    <div class = "players_player_positions">
+                        {% for position in player.player_positions %}
+                        <div class = "players_player_position">
+                            {{ position }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class = "player_player_dob">
+                        {{ player.dob }}
+                    </div>
+                    <div class = "player_player_height_cm">
+                        {{ player.height_cm }} cm
+                    </div>
+                    <div class = "player_player_weight_kg">
+                        {{ player.weight_kg }} kg
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "player_player_info_2">
+            <div class = "player_overall_rating">
+                <div class = "player_overall_rating_1">
+                    {{ player.overall }}
+                </div>
+                <div class = "player_player_info_explanation">
+                    Overall rating
+                </div>
+            </div>
+            <div class = "player_potential">
+                <div class = "player_potential_1">
+                    {{ player.potential }}
+                </div>
+                <div class = "player_player_info_explanation">
+                    Potential
+                </div>
+            </div>
+            <div class = "player_value">
+                <div class = "player_value_1">
+                    {{ player.value_eur }}
+                </div>
+                <div class = "player_player_info_explanation">
+                    Value
+                </div>
+            </div>
+            <div class = "player_wage">
+                <div class = "player_wage_1">
+                    {{ player.wage_eur }}
+                </div>
+                <div class = "player_player_info_explanation">
+                    Wage
+                </div>
+            </div>
+        </div>
+        <div class = "player_profile">
+            <div class = "player_profile_info">
+                <div class = "player_profile_info_header">
+                    PROFILE
+                </div>
+                <div class = "player_profile_info_1">
+                    <div class = "player_profile_info_1_1">
+                        <div class = "player_profile_info_1_1_title">
+                            Preferred foot
+                        </div>
+                        <div class = "player_profile_info_1_1_content">
+                            {{ player.preferred_foot }}
+                        </div>
+                    </div>
+                    <div class = "player_profile_info_1_1">
+                        <div class = "player_profile_info_1_1_title">
+                            Skill moves
+                        </div>
+                        <div class = "player_profile_info_1_1_content">
+                            {{ player.skill_moves }}
+                        </div>
+                    </div>
+                    <div class = "player_profile_info_1_1">
+                        <div class = "player_profile_info_1_1_title">
+                            Work Rate
+                        </div>
+                        <div class = "player_profile_info_1_1_content">
+                            {{ player.work_rate }}
+                        </div>
+                    </div>
+                    <div class = "player_profile_info_1_1">
+                        <div class = "player_profile_info_1_1_title">
+                            Release clause
+                        </div>
+                        <div class = "player_profile_info_1_1_content">
+                            {{ player.release_clause_eur }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "player_profile_player_specialties">
+                <div class = "player_profile_info_header">
+                    PLAYER SPECIAL ABILITIES
+                </div>
+                {% for trait in player.player_traits %}
+                    {{ trait }}
+                    <br>
+                {% endfor %}
+            </div>
+            <div class = "player_profile_club">
+                <div class = "player_profile_club_name">
+                    <img src = "https://cdn.sofifa.net/flags/fr.png">
+                    <div class = "player_profile_info_header">
+                        {{ player.club_name }}
+                    </div>
+                </div>
+                <div class = "player_profile_club_logo">
+                    <img src = "{{ player.club_logo_url }}">
+                </div>
+                <div class = "player_profile_club_position">
+                    Position
+                    <div class = "player_profile_club_position_value">
+                        {{ player.club_position }}
+                    </div>
+                </div>
+                <div class = "player_profile_club_joined">
+                    Joined
+                    <div class = "player_profile_club_joined_value">
+                        {{ player.club_joined }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "player_abilities">
+            <div class = "player_profile_info_header" style = "margin-top:1%">
+                SKILLS
+            </div>
+            <div class = "player_abilities_rows">
+            <div class = "player_abilities_row">
+                <div class = "player_abilities_1">
+                    <div class = "player_abilities_title">
+                        Crossing
+                    </div>
+                    <div class = "player_abilities_value">
+                        {{ player.attacking_crossing }}
+                    </div>
+                </div>
+                <div class = "player_abilities_1">
+                    <div class = "player_abilities_title">
+                        Pace
+                    </div>
+                    <div class = "player_abilities_value">
+                        {{ player.pace }}
+                    </div>
+                </div>
+                <div class = "player_abilities_1">
+                    <div class = "player_abilities_title">
+                        Passing
+                    </div>
+                    <div class = "player_abilities_value">
+                        {{ player.passing }}
+                    </div>
+                </div>
+                <div class = "player_abilities_1">
+                    <div class = "player_abilities_title">
+                        Shooting
+                    </div>
+                    <div class = "player_abilities_value">
+                        {{ player.shooting }}
+                    </div>
+                </div>
+                <div class = "player_abilities_1">
+                    <div class = "player_abilities_title">
+                        Dribbling
+                    </div>
+                    <div class = "player_abilities_value">
+                        {{ player.dribbling }}
+                    </div>
+                </div>
+                <div class = "player_abilities_1">
+                    <div class = "player_abilities_title">
+                        Skill dribbling
+                    </div>
+                    <div class = "player_abilities_value">
+                        {{ player.skill_dribbling }}
+                    </div>
+                </div>
+            </div>
+            <div class = "player_abilities_row">
+                <div class = "player_abilities_1">
+                    <div class = "player_abilities_title">
+                        Heading accuracy
+                    </div>
+                    <div class = "player_abilities_value">
+                        {{ player.attacking_heading_accuracy }}
+                    </div>
+                </div>
+                <div class = "player_abilities_1">
+                    <div class = "player_abilities_title">
+                        Free kick accuracy
+                    </div>
+                    <div class = "player_abilities_value">
+                        {{ player.skill_fk_accuracy }}
+                    </div>
+                </div>
+                <div class = "player_abilities_1">
+                    <div class = "player_abilities_title">
+                        Movement acceleration
+                    </div>
+                    <div class = "player_abilities_value">
+                        {{ player.movement_acceleration }}
+                    </div>
+                </div>
+                <div class = "player_abilities_1">
+                    <div class = "player_abilities_title">
+                        Movement sprint speed
+                    </div>
+                    <div class = "player_abilities_value">
+                        {{ player.movement_sprint_speed }}
+                    </div>
+                </div>
+                <div class = "player_abilities_1">
+                    <div class = "player_abilities_title">
+                        Agility
+                    </div>
+                    <div class = "player_abilities_value">
+                        {{ player.movement_agility }}
+                    </div>
+                </div>
+                    <div class = "player_abilities_1">
+                        <div class = "player_abilities_title">
+                            Defending sliding tackle
+                        </div>
+                        <div class = "player_abilities_value">
+                            {{ player.defending_sliding_tackle }}
+                        </div>
+                    </div>
+            </div>
+            <div class = "player_abilities_row">
+                <div class = "player_abilities_1">
+                    <div class = "player_abilities_title">
+                        Jumping
+                    </div>
+                    <div class = "player_abilities_value">
+                        {{ player.power_jumping }}
+                    </div>
+                </div>
+                <div class = "player_abilities_1">
+                    <div class = "player_abilities_title">
+                        Stamina
+                    </div>
+                    <div class = "player_abilities_value">
+                        {{ player.power_stamina }}
+                    </div>
+                </div>
+                <div class = "player_abilities_1">
+                    <div class = "player_abilities_title">
+                        Strength
+                    </div>
+                    <div class = "player_abilities_value">
+                        {{ player.power_strength }}
+                    </div>
+                </div>
+                <div class = "player_abilities_1">
+                    <div class = "player_abilities_title">
+                        Power of shot
+                    </div>
+                    <div class = "player_abilities_value">
+                        {{ player.power_shot_power }}
+                    </div>
+                </div>
+                <div class = "player_abilities_1">
+                    <div class = "player_abilities_title">
+                        Power of long shot
+                    </div>
+                    <div class = "player_abilities_value">
+                        {{ player.power_long_shots }}
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class = "player_latest_news">
+
+        <div class = "player_latest_news_header">
+            LATEST NEWS
+        </div>
+
+        <div class = "player_latest_news_news">
+            <a href = "/news/1">
+                <div class = "player_latest_news_image">
+                    <img src = "{{ url_for('static', filename = '/images/news/Ben_Yedder.jpg') }}">
+                </div>
+                <div class = "player_latest_news_title">
+                    Ben Yedder
+                </div>
+            </a>
+        </div>
+
+        <div class = "player_latest_news_news">
+            <a href = "/news/1">
+                <div class = "player_latest_news_image">
+                    <img src = "https://www.getfootballnewsfrance.com/assets/fbl-fra-ligue1-reims-metz-806x537.jpg">
+                </div>
+                <div class = "player_latest_news_title">
+                    David Guion
+                </div>
+            </a>
+        </div>
+
+        <div class = "player_latest_news_news">
+            <a href = "/news/1">
+                <div class = "player_latest_news_image">
+                    <img src = "{{ url_for('static', filename = '/images/news/podcast_logo.png') }}">
+                </div>
+                <div class = "player_latest_news_title">
+                    Official podcast
+                </div>
+            </a>
+        </div>
+
+        <div class = "player_latest_news_news">
+            <a href = "/news/1">
+                <div class = "player_latest_news_image">
+                    <img src = "{{ url_for('static', filename = '/images/news/Contract_Extensions.jpg') }}">
+                </div>
+                <div class = "player_latest_news_title">
+                     Contract extensions
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<script type = "text/javascript" src = "{{ url_for('static', filename = '/js/player.js')}}"></script>
+
+{% endblock %}

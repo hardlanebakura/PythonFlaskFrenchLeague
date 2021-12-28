@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block h_1 %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@700&display=swap" rel="stylesheet">
+<link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/news.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+<div class = "news_title">
+    <img src = "{{ url_for('static', filename = 'images/news/Contract_Extensions.jpg') }}">
+    <div class = "news_title_1">
+    2021-22: Contract extensions Gusto Dieng Diop Thuram Fonte
+    </div>
+</div>
+
+<div class = "news_main">
+    <div class = "news_details">
+        Published on 15/12/2021 at 10:30
+    </div>
+    <div class = "news_mini_title">
+        <div class = "news_mini_title_header">
+            LOSC captain José Fonte, OL young gun Malo Gusto, OM goal sensation Bamba Dieng, AS Monaco wizard Sofiane Diop, Nice midfielder Khéphren Thuram... Check out all the contract extensions announced by clubs in Ligue 1 Uber Eats in season 2021-22.
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}
+

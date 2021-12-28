@@ -1,0 +1,325 @@
+{% extends 'base.html' %}
+
+{% block h_1 %}
+<script>
+    var team = {{ team|tojson }}
+    var clubs = {{ clubs|tojson }}
+    var left_team = {{ left_team|tojson }}
+</script>
+<link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/team.css')}}">
+<link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/players.css')}}">
+<link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/statistics.css')}}">
+{% endblock %}
+
+{% block body %}
+
+    <div class = "general_info_header">
+        Ligue 1 Uber Eats Statistics
+    </div>
+    <div class = "teams_team_overview">
+            <img src = "{{ url_for('static', filename = '/images/ratio_18_11_11_11.jpg')}}">
+        <div class = "teams_team_name">
+        STATISTICS
+        </div>
+    </div>
+
+    <div class = "team_menu">
+        <div class = "team_menu_option">
+            <a href = "/statistics/">
+                GENERAL
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/statistics/player_stats">
+                PLAYER STATS
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/statistics/team_stats">
+                TEAM STATS
+            </a>
+        </div>
+        <div class = "team_menu_option active_option">
+            <a href = "/statistics/fun_facts">
+                FUN FACTS
+            </a>
+        </div>
+        <div class = "select_club">
+
+        </div>
+
+    </div>
+
+    <div class = "fun_facts_main">
+        <div class = "fun_facts_player_header">
+            Shortest player
+        </div>
+        <div class = "players_player">
+        <div class = "player_player_name">
+            <a class = "players_player_link" href = "../players/{{ interesting_players[0].player_id }}">
+            {{ interesting_players[0].short_name }}
+            </a>
+        </div>
+        <img class = "players_player_images" src = "{{ interesting_players[0].player_face_url }}">
+            <div class = "players_player_positions">
+                {% for position in interesting_players[0].player_positions %}
+                <div class = "players_player_position">
+                    {{ position }}
+                </div>
+                {% endfor %}
+            </div>
+            <div class = "players_player_overall">
+                {{ interesting_players[0].overall }}
+            </div>
+        {% if interesting_players[0].player_tags != "nan" %}
+            <div class = "players_player_tags">
+                {{ interesting_players[0].player_tags }}
+            </div>
+        {% endif %}
+        <img class = "players_club" src = "{{ interesting_players[0].club_logo_url }}">
+            <div class = "players_player_club">
+                {{ interesting_players[0].club_name }}
+            </div>
+            <div class = "players_player_stats">
+                {{ interesting_players[0].height_cm }} cm
+            </div>
+    </div>
+    <div class = "fun_facts_player_header">
+        Tallest player
+    </div>
+    <div class = "players_player">
+        <div class = "player_player_name">
+            <a class = "players_player_link" href = "{{ interesting_players[1].player_id }}">
+            {{ interesting_players[1].short_name }}
+            </a>
+        </div>
+        <img class = "players_player_images" src = "{{ interesting_players[1].player_face_url }}">
+            <div class = "players_player_positions">
+                {% for position in interesting_players[1].player_positions %}
+                <div class = "players_player_position">
+                    {{ position }}
+                </div>
+                {% endfor %}
+            </div>
+            <div class = "players_player_overall">
+                {{ interesting_players[1].overall }}
+            </div>
+        {% if interesting_players[0].player_tags != "nan" %}
+            <div class = "players_player_tags">
+                {{ interesting_players[0].player_tags }}
+            </div>
+        {% endif %}
+        <img class = "players_club" src = "{{ interesting_players[1].club_logo_url }}">
+            <div class = "players_player_club">
+                {{ interesting_players[1].club_name }}
+            </div>
+            <div class = "players_player_stats">
+                {{ interesting_players[1].height_cm }} cm
+            </div>
+    </div>
+    <div class = "fun_facts_player_header">
+        Skinniest player
+    </div>
+    <div class = "players_player">
+        <div class = "player_player_name">
+            <a class = "players_player_link" href = "{{ interesting_players[2].player_id }}">
+            {{ interesting_players[2].short_name }}
+            </a>
+        </div>
+        <img class = "players_player_images" src = "{{ interesting_players[2].player_face_url }}">
+            <div class = "players_player_positions">
+                {% for position in interesting_players[2].player_positions %}
+                <div class = "players_player_position">
+                    {{ position }}
+                </div>
+                {% endfor %}
+            </div>
+            <div class = "players_player_overall">
+                {{ interesting_players[2].overall }}
+            </div>
+        {% if interesting_players[2].player_tags != "nan" %}
+            <div class = "players_player_tags">
+                {{ interesting_players[2].player_tags }}
+            </div>
+        {% endif %}
+        <img class = "players_club" src = "{{ interesting_players[2].club_logo_url }}">
+            <div class = "players_player_club">
+                {{ interesting_players[2].club_name }}
+            </div>
+            <div class = "players_player_stats">
+                {{ interesting_players[2].weight_kg }} kg
+            </div>
+    </div>
+    <div class = "fun_facts_player_header">
+        Chubbiest player
+    </div>
+        <div class = "players_player">
+        <div class = "player_player_name">
+            <a class = "players_player_link" href = "{{ interesting_players[3].player_id }}">
+            {{ interesting_players[3].short_name }}
+            </a>
+        </div>
+        <img class = "players_player_images" src = "{{ interesting_players[3].player_face_url }}">
+            <div class = "players_player_positions">
+                {% for position in interesting_players[0].player_positions %}
+                <div class = "players_player_position">
+                    {{ position }}
+                </div>
+                {% endfor %}
+            </div>
+            <div class = "players_player_overall">
+                {{ interesting_players[3].overall }}
+            </div>
+        {% if interesting_players[0].player_tags != "nan" %}
+            <div class = "players_player_tags">
+                {{ interesting_players[3].player_tags }}
+            </div>
+        {% endif %}
+        <img class = "players_club" src = "{{ interesting_players[3].club_logo_url }}">
+            <div class = "players_player_club">
+                {{ interesting_players[3].club_name }}
+            </div>
+            <div class = "players_player_stats">
+                {{ interesting_players[3].weight_kg }} kg
+            </div>
+    </div>
+        <div class = "fun_facts_player_header">
+        Highest free kick accuracy player
+    </div>
+    <div class = "players_player">
+        <div class = "player_player_name">
+            <a class = "players_player_link" href = "{{ interesting_players[4].player_id }}">
+            {{ interesting_players[4].short_name }}
+            </a>
+        </div>
+        <img class = "players_player_images" src = "{{ interesting_players[4].player_face_url }}">
+            <div class = "players_player_positions">
+                {% for position in interesting_players[4].player_positions %}
+                <div class = "players_player_position">
+                    {{ position }}
+                </div>
+                {% endfor %}
+            </div>
+            <div class = "players_player_overall">
+                {{ interesting_players[4].overall }}
+            </div>
+        {% if interesting_players[4].player_tags != "nan" %}
+            <div class = "players_player_tags">
+                {{ interesting_players[4].player_tags }}
+            </div>
+        {% endif %}
+        <img class = "players_club" src = "{{ interesting_players[4].club_logo_url }}">
+            <div class = "players_player_club">
+                {{ interesting_players[4].club_name }}
+            </div>
+            <div class = "players_player_stats players_player_overall">
+                {{ interesting_players[4].skill_fk_accuracy }}
+            </div>
+    </div>
+        <div class = "most_left_footed_team">
+            <img src = "../static/images/club_logos/{{ left_team }}.png">
+            {{ clubs_to_fifa[left_team] }}
+        </div>
+    </div>
+
+    <div class = "team_latest_news_header">
+        LATEST NEWS
+    </div>
+    <div class = "team_latest_news">
+        <div class = "team_tables">
+            <div class = "team_tables_heading">
+                TABLES
+            </div>
+            <div class = "team_tables_menu">
+                <div class = "team_tables_menu_rank">
+                    RANK
+                </div>
+                <div class = "team_tables_menu_teams">
+                    TEAMS
+                </div>
+                <div class = "team_tables_menu_pts">
+                    PTS
+                </div>
+                <div class = "team_tables_menu_played">
+                    PL
+                </div>
+                <div class = "team_tables_menu_goal_difference">
+                    GD
+                </div>
+            </div>
+            <div class = "team_tables_table">
+                {% for club in clubs %}
+                <div class = "team_tables_table_team">
+                <div class = "team_tables_table_team_rank">
+                    {{ club.rank }}
+                </div>
+                <div class = "team_tables_table_team_logo">
+                    <img>
+                </div>
+                <div class = "team_tables_table_team_name">
+                    {{ club.name }}
+                </div>
+                 <div class = "team_tables_table_team_pts">
+                    {{ club.pts }}
+                 </div>
+                <div class = "team_tables_table_team_pm">
+                    {{ club.pm }}
+                 </div>
+                <div class = "team_tables_table_team_gd">
+                    {{ club.gd }}
+                </div>
+                </div>
+                {% endfor %}
+            </div>
+            </div>
+            <div class = "team_latest_news_1">
+            <div class = "team_latest_news_row">
+                <div class = "team_latest_news_news">
+                    <a href = "/news/1">
+                        <div class = "team_latest_news_image">
+                            <img src = "{{ url_for('static', filename = '/images/news/Ben_Yedder.jpg') }}">
+                        </div>
+                        <div class = "team_latest_news_title">
+                            Ben Yedder
+                        </div>
+                    </a>
+                </div>
+                <div class = "team_latest_news_news">
+                    <a href = "/news/2">
+                        <div class = "team_latest_news_image">
+                            <img src = "https://www.getfootballnewsfrance.com/assets/fbl-fra-ligue1-reims-metz-806x537.jpg">
+                        </div>
+                        <div class = "team_latest_news_title">
+                            David Guion
+                        </div>
+                    </a>
+                </div>
+            </div>
+           <div class = "team_latest_news_row">
+                <div class = "team_latest_news_news">
+                    <a href = "/news/3">
+                        <div class = "team_latest_news_image">
+                            <img src = "{{ url_for('static', filename = '/images/news/podcast_logo.png') }}">
+                        </div>
+                        <div class = "team_latest_news_title">
+                            Official podcast
+                        </div>
+                    </a>
+                </div>
+                <div class = "team_latest_news_news">
+                    <a href = "/news/4">
+                        <div class = "team_latest_news_image">
+                            <img src = "{{ url_for('static', filename = '/images/news/Contract_Extensions.jpg') }}">
+                        </div>
+                        <div class = "team_latest_news_title">
+                            Contract extensions
+                        </div>
+                    </a>
+                </div>
+            </div>
+            </div>
+    </div>
+
+<script type = "text/javascript" src = "{{ url_for('static', filename = '/js/statistics.js')}}"></script>
+
+{% endblock %}

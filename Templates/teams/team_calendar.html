@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block h_1 %}
+<script>
+    var team = {{ team|tojson }}
+</script>
+<link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/team.css')}}">
+{% endblock %}
+
+{% block body %}
+
+&nbsp;
+    <div class = "teams_team_overview">
+        <img src = "/./static/images/stadiums/stadium-AS-Saint-Étienne.jpg">
+        
+        <div class = "teams_team_name">
+        {{ team }}
+        </div>
+        <div class = "teams_buttons">
+        <button class = "tickets">
+            TICKETS
+        </button>
+        <button class = "boutique">
+            BOUTIQUE
+        </button>
+        </div>
+        <div class = "teams_socials_pages">
+            <div class = "teams_twitter">
+                1
+            </div>
+        </div>
+    </div>
+
+    <div class = "team_menu">
+        <div class = "team_logo">
+
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}">
+            GENERAL
+            </a>
+        </div>
+        <div class = "team_menu_option active_option">
+            <a href = "/teams/{{ id }}/calendar">
+            CALENDAR
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}/stadium">
+            STADIUM
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}/squad">
+            SQUAD
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}/staff">
+            STAFF
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}/stats">
+            STATS
+            </a>
+        </div>
+        <div class = "team_menu_option">
+            <a href = "/teams/{{ id }}/honours">
+            HONOURS
+            </a>
+        </div>
+        <div class = "select_club">
+
+        </div>
+
+    </div>
+
+    <div class = "team_calendar">
+        <div class = "team_info_header">
+            TEAM CALENDAR
+        </div>
+        {% for item in team_calendar %}
+        <div class = "team_calendar_fixture">
+            <div class = "team_calendar_fixture_number">
+                {{ item }}
+            </div>
+            <div class = "team_fixture">
+                <div class = "team_fixture_team_name">
+                {{ team_calendar[item]["home_team"] }}
+                </div>
+                <img src = "/./static/images/club_logos/{{ fifa_to_clubs[team_calendar[item]['home_team']] }}.png">
+                <div class = "team_fixture_team_goals">
+                {{ team_calendar[item]["home_team_goals"] }}
+                </div>
+                <div class = "team_fixture_team_goals">
+                &nbsp;&nbsp; - &nbsp;&nbsp; {{ team_calendar[item]["away_team_goals"] }}
+                </div>
+                <img src = "/./static/images/club_logos/{{ fifa_to_clubs[team_calendar[item]['away_team']] }}.png">
+                <div class = "team_fixture_team_name">
+                {{ team_calendar[item]["away_team"] }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+<script type = "text/javascript" src = "{{ url_for('static', filename = '/js/team.js')}}"></script>
+
+{% endblock %}

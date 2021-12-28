@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block h_1 %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@700&display=swap" rel="stylesheet">
+<link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/news.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+<div class = "news_title">
+    <img src = "{{ url_for('static', filename = 'images/news/podcast_logo.png') }}">
+    <div class = "news_title_1">
+    Official Ligue 1 podcast in English
+    </div>
+</div>
+
+<div class = "news_main">
+    <div class = "news_details">
+        Published on 13/12/2021 at 13:30
+    </div>
+    <div class = "news_mini_title">
+        <div class = "news_mini_title_header">
+            Check out the latest episode of the official Ligue 1 podcast in English, Le Beau Jeu. Join Matt Spiro and the panel for everything Ligue 1 every Monday with exclusive interviews and bonus pods published during the week. Available on Apple Podcasts, Spotify, Deezer, Google Podcasts, TuneIn, Stitcher, Podcast Addict, PocketCast, Castbox, Downcast, Overcast and Podcast Republic.
+        </div>
+        <div class = "news_mini_title_content">
+            This week on #LeBeauJeu, the Official Ligue 1 Podcast, host Matt Spiro is joined by regular panellist Andy Scott and special guest Tom Williams – French ⚽ for The Times in England… 🕵️‍♂️ Our experts review the weekend’s action and we hear from World Cup winner 🏆 Franck Leboeuf as Marseille get back to winning ways, 7️⃣Mbappé sinks former club Monaco and Nantes come back to stun Lens. Plus we have an exclusive 🎙️interview with young Franco-Englishman 💫Mohamed-Ali Cho who is lighting up Ligue 1 and the team pick out their best young players coming through the ranks!
+        </div>
+    </div>
+    <div class = "news_mini_title_header">
+
+    </div>
+    <div class = "news_content">
+
+    </div>
+    <div class = "news_content">
+
+    </div>
+    <div class = "news_mini_title_header">
+
+    </div>
+    <div class = "news_podcast">
+        <iframe src="https://open.spotify.com/embed/episode/4hFfiSKftyb9yLNHylzKQD?go=1&nd=1" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
