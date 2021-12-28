@@ -615,6 +615,21 @@ margin-top:4px;
 
 }
 
+.title_header {
+
+height: 40px;
+font-weight:bold;
+color: #e83e8c;
+font-size: 23px;
+letter-spacing: .04em;
+line-height: 1.5;
+margin-top:10px;
+margin-bottom:40px;
+padding-top:27px;
+text-transform:uppercase;
+
+}
+
 @media only screen and (max-width: 1500px) {
 
     .team_latest_news_image {

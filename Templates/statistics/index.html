@@ -11,9 +11,7 @@
 
 {% block body %}
 
-    <div class = "title_header">
-        Ligue 1 Uber Eats Statistics
-    </div>
+    &nbsp;
     <div class = "teams_team_overview">
             <img src = "{{ url_for('static', filename = '/images/ratio_18_11_11_11.jpg')}}">
         <div class = "teams_team_name">
@@ -46,6 +44,10 @@
 
         </div>
 
+    </div>
+
+    <div class = "title_header">
+        GENERAL STATISTICS
     </div>
 
     <div class = "team_info">
@@ -107,7 +109,7 @@
             {% endfor %}
         </div>
         <div class = "team_general_info">
-            <div class = "team_info_header">
+            <div class = "team_info_header" style = "transform: translateY(-31px);">
                 GENERAL
             </div>
             <div class = "statistics_general_statistics">
@@ -153,7 +155,7 @@
             </div>
         </div>
         </div>
-        <div class = "team_info_row">
+        <div class = "team_info_row" style = "margin-top:-40px">
         <div class = "team_top_scorers">
             <div class = "team_info_header" style = "margin-top:-15px">
                 MATCH WITH MOST GOALS

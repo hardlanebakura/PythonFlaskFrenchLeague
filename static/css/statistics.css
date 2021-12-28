@@ -138,6 +138,7 @@ margin-bottom: 5px;
 
 .team_top_scorer {
 
+height:210px;
 background-color: #091c3e;
 color: #fff;
 
@@ -145,7 +146,7 @@ color: #fff;
 
 .team_top_scorer img {
 
-height:120px;
+height:180px;
 width:180px;
 
 }
@@ -400,6 +401,7 @@ background-color: #091c3e;
 .statistics_general_statistics {
 
 height:504px;
+transform: translateY(-31px);
 
 }
 
