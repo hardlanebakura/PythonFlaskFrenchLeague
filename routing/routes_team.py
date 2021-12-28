@@ -3,7 +3,7 @@ from jinja2 import TemplateNotFound
 from log_config import logging
 from m import *
 from clubs import *
-from b import *
+from teams import *
 from teams_info import teams_info
 
 team_page = Blueprint('team', __name__,

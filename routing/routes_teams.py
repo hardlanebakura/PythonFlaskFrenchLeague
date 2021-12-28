@@ -3,7 +3,7 @@ from jinja2 import TemplateNotFound
 from log_config import logging
 from m import matches, clubs_sorted
 from clubs import fifa_names
-from b import *
+from teams import *
 
 teams_page = Blueprint('teams', __name__,
                         template_folder='templates', static_folder='static')

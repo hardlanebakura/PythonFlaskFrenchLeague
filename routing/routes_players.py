@@ -3,10 +3,10 @@ from flask_paginate import Pagination, get_page_parameter, get_page_args
 from jinja2 import TemplateNotFound
 from log_config import logging
 from m import matches, clubs_sorted
-from b import *
+from teams import *
 from player import Player
 from goalkeeper import Goalkeeper
-from w import get_skill_diagram_for_player
+from skill_diagram import get_skill_diagram_for_player
 
 PLAYER_ROWS_PER_PAGE = 40
 

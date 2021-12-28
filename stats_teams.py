@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from b import all_players, get_players_for_team
+from teams import all_players, get_players_for_team
 from m import *
 from logging.config import logging
 from operator import itemgetter

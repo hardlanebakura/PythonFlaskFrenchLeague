@@ -3,9 +3,9 @@ from jinja2 import TemplateNotFound
 from log_config import logging
 from m import matches, clubs_sorted
 from clubs import *
-from b import *
-from s import *
-from s1 import *
+from teams import *
+from stats import *
+from stats_teams import *
 
 match_least_goals = matches_goals_number_records()[0]
 match_most_goals = matches_goals_number_records()[1]

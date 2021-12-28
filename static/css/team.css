@@ -118,6 +118,7 @@ margin-bottom:4%;
 
 .team_calendar_fixture {
 
+margin-top:7px;
 font-size:17px;
 display:flex;
 align-items:center;
@@ -138,7 +139,7 @@ margin-top:4%
 
 .team_fixture_team_name {
 
-width:190px;
+width:152px;
 text-align:left;
 
 }
@@ -162,7 +163,7 @@ margin-right:10px;
 .team_calendar_fixture_number {
 
 margin-left:37%;
-margin-top:-5px;
+margin-top:19px;
 
 }
 
@@ -280,6 +281,14 @@ text-align:left;
 
 margin-left:7%;
 width:5%;
+
+}
+
+.team_fixture_away_team_name {
+
+width:190px;
+margin-left:40px;
+text-align:left;
 
 }
 
