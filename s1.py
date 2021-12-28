@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from collections import Counter
 from b import all_players, get_players_for_team
 from m import *
 from logging.config import logging
 from operator import itemgetter
 from clubs import *
+from player import Player
 
 plt.rcdefaults()
 
@@ -136,5 +136,16 @@ def get_best_managers():
     logging.info(best_managers)
     return best_managers
 
+def get_accuracy_of_teams():
+    teams_accuracy = []
+    for team in fifa_names:
+        accuracy_for_team = [player.skill_fk_accuracy for player in get_players_for_team(team) if isinstance(player, Player)]
+        accuracy_for_team = sum(accuracy_for_team) / len(accuracy_for_team)
+        teams_accuracy.append({"name":team, "accuracy":int(round(accuracy_for_team))})
+    teams_accuracy = sorted(teams_accuracy, key=itemgetter('accuracy'), reverse=True)
+    logging.info(teams_accuracy)
+    return teams_accuracy
+
 best_managers = get_best_managers()
 get_goals_teams()
+teams_accuracy = get_accuracy_of_teams()

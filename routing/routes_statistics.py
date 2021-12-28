@@ -33,4 +33,4 @@ def team_stats():
 def fun_facts():
     interesting_players = find_number_one_players_in_various_categories()
     return render_template("statistics/fun_facts.html", latest_matches = matches[-5:], clubs = clubs_sorted, teams = fifa_names, team = fifa_names[10], top_scorers = top_scorers,
-                           interesting_players = interesting_players, left_team = get_preferred_foot_teams(), clubs_to_fifa = clubs_to_fifa)
+                           interesting_players = interesting_players, left_team = get_preferred_foot_teams(), teams_accuracy = teams_accuracy, fifa_to_clubs = fifa_to_clubs, clubs_to_fifa = clubs_to_fifa)

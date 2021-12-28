@@ -128,7 +128,7 @@ if (leftTeam == true) {
     for (let i = 0; i < teamImages.length; i++) {
         console.log(clubs[i].name);
 
-        teamImages[i+22].setAttribute("src", `/./static/images/club_logos/${clubs[i].name}.png`);
+        teamImages[i+23].setAttribute("src", `/./static/images/club_logos/${clubs[i].name}.png`);
         //console.log(team_table_images[i].getAttribute("src"));
     }
 }

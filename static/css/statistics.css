@@ -711,6 +711,42 @@ margin-left: 34%;
 
 }
 
+.title_header {
+
+height: 40px;
+font-weight:bold;
+color: #e83e8c;
+font-size: 23px;
+letter-spacing: .04em;
+line-height: 1.5;
+margin-top:10px;
+margin-bottom:40px;
+padding-top:27px;
+text-transform:uppercase;
+
+}
+
+.fun_facts_team {
+
+margin-bottom:14px;
+display:flex;
+justify-content:center;
+align-items:center;
+
+}
+
+.fun_facts_team_name {
+
+width:170px;
+
+}
+
+.fun_facts_team_value {
+
+
+
+}
+
 .players_player a {
 
 color:#000;

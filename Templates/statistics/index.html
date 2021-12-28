@@ -11,7 +11,7 @@
 
 {% block body %}
 
-    <div class = "general_info_header">
+    <div class = "title_header">
         Ligue 1 Uber Eats Statistics
     </div>
     <div class = "teams_team_overview">
@@ -96,7 +96,7 @@
             </div>
             <div class = "team_top_scorer">
                     <div class = "team_top_scorer_image">
-                    <img src = "{{ top_assists[0].player_face_url }}">
+                    <img src = "{{ best_managers[0]['coach_url'] }}">
                     </div>
                     {{ best_managers[0]["coach"] }}
             </div>

@@ -123,11 +123,9 @@ def get_preferred_foot_teams():
         for player in get_players_for_team(team):
             if player.preferred_foot == "Left":
                 preferred_foot_team = preferred_foot_team + 1
-        list_preferred_foot.append(preferred_foot_team)
-    logging.debug(list_preferred_foot)
-    logging.debug(fifa_names[list_preferred_foot.index(max(list_preferred_foot))])
-    team_with_left_footed = club_names[list_preferred_foot.index(max(list_preferred_foot))]
-    return team_with_left_footed
+        list_preferred_foot.append({"name":team, "left_footed_players":preferred_foot_team})
+    list_preferred_foot = sorted(list_preferred_foot, key=itemgetter("left_footed_players"), reverse=True)
+    return list_preferred_foot[0]
 
 get_preferred_foot_teams()
 
@@ -199,3 +197,4 @@ def get_foreigners_rank_relationship():
 get_foreigners_rank_relationship()
 #get_chart_player_countries()
 find_biggest_upset()
+get_preferred_foot_teams()

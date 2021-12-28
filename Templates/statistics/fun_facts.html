@@ -13,9 +13,7 @@
 
 {% block body %}
 
-    <div class = "general_info_header">
-        Ligue 1 Uber Eats Statistics
-    </div>
+    <br>
     <div class = "teams_team_overview">
             <img src = "{{ url_for('static', filename = '/images/ratio_18_11_11_11.jpg')}}">
         <div class = "teams_team_name">
@@ -48,6 +46,10 @@
 
         </div>
 
+    </div>
+
+    <div class = "title_header">
+        MOST INTERESTING PLAYERS
     </div>
 
     <div class = "fun_facts_main">
@@ -216,13 +218,36 @@
                 {{ interesting_players[4].skill_fk_accuracy }}
             </div>
     </div>
-        <div class = "most_left_footed_team">
-            <img src = "../static/images/club_logos/{{ left_team }}.png">
-            {{ clubs_to_fifa[left_team] }}
+    <div class = "title_header">
+        MOST INTERESTING TEAMS
+    </div>
+        <div class = "fun_facts_player_header">
+            Team with most left footed players
+        </div>
+        <div class = "fun_facts_team">
+            <img src = "../static/images/club_logos/{{ fifa_to_clubs[left_team['name']] }}.png" style = "margin-left:-12px;">
+            <div class = "fun_facts_team_name">
+                {{ left_team['name'] }}
+            </div>
+            <div class = "fun_facts_team_value" style = "margin-left:10px;">
+                {{ left_team['left_footed_players'] }}
+            </div>
+        </div>
+        <div class = "fun_facts_player_header">
+            Team with lowest free kick accuracy
+        </div>
+        <div class = "fun_facts_team">
+            <img src = "../static/images/club_logos/{{ fifa_to_clubs[teams_accuracy[-1]['name']] }}.png">
+            <div class = "fun_facts_team_name">
+                {{ teams_accuracy[-1]["name"] }}
+            </div>
+            <div class = "players_player_overall">
+                {{ teams_accuracy[-1]["accuracy"] }}
+            </div>
         </div>
     </div>
 
-    <div class = "team_latest_news_header">
+    <div class = "title_header">
         LATEST NEWS
     </div>
     <div class = "team_latest_news">
