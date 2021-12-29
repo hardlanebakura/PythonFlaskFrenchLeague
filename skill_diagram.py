@@ -1,6 +1,4 @@
 from teams import all_players
-
-from sklearn.preprocessing import MinMaxScaler
 import plotly.express as px
 
 def get_skill_diagram_for_player(player):
