@@ -6,7 +6,8 @@ from clubs import *
 from log_config import logging
 from player import Player
 from goalkeeper import Goalkeeper
-from mongo_collections import Database
+#from mongo_collections import DatabaseAtlas
+from m import DatabaseAtlas
 import difflib
 from teams_info import teams_info
 
@@ -22,12 +23,12 @@ logging.debug(response_teams)
 
 
 #get detailed info for scorers
-#commented out in order to prevent API calls limit and use Database
+#commented out in order to prevent API calls limit and use DatabaseAtlas
 #connection.request('GET', '/v2/competitions/2015/scorers?limit=22', None, headers )
 #response_top_scorers = json.loads(connection.getresponse().read().decode())
 
 response_top_scorers = {}
-response_top_scorers["scorers"] = Database.findAll("french_league_1_top_scorers", {})
+response_top_scorers["scorers"] = DatabaseAtlas.findAll("french_league_1_top_scorers", {})
 
 logging.debug(response_top_scorers)
 
@@ -202,16 +203,16 @@ def get_all_scorers():
                         scorer["player"]["nationality"] == "Reunion" and player.nationality_name == "France")):
                     all_scorers.append(player)
                     all_scorers[-1].goals_for_top_scorers(scorer["numberOfGoals"])
-                    Database.insertOne("scorers", player.__dict__)
+                    DatabaseAtlas.insertOne("scorers", player.__dict__)
 
 def get_top_scorers_for_team(team):
-    top_scorers_for = Database.findAll("scorers", {})
+    top_scorers_for = DatabaseAtlas.findAll("scorers", {})
     top_scorers_for_team = [i for i in top_scorers_for if i["club_name"] == team]
     return top_scorers_for_team
 
 #commented out in order to prevent multiple unnecessary adds to the database
 #get_all_scorers()
-all_scorers = Database.findAll("scorers", {})
+all_scorers = DatabaseAtlas.findAll("scorers", {})
 ts = all_scorers[:22]
 logging.debug(ts)
 get_top_scorers_for_team("AS Monaco")
@@ -221,7 +222,7 @@ def get_detailed_stats_for_team(team):
         if fifa_name == team:
             return clubs[fifa_names.index(team)]
 
-#Database.dropCol("scorers")
+#DatabaseAtlas.dropCol("scorers")
 
 def get_roles_for_team(team):
     goalkeepers = []
@@ -259,7 +260,7 @@ for team in fifa_names:
 #connection.request('GET', '/v2/competitions/2015/matches?matchday=20', None, headers )
 #response_matches = json.loads(connection.getresponse().read().decode())
 
-#Database.dropCol("french_ligue_1_upcoming_matches")
+#DatabaseAtlas.dropCol("french_ligue_1_upcoming_matches")
 
 def get_trophies(team):
     return teams_info[team]["trophies"]
@@ -348,7 +349,7 @@ get_similar_goalkeepers(all_players[100])
 logging.debug(get_players_for_team("AS Monaco"))
 get_roles_for_team(get_players_for_team("AS Monaco"))
 
-#Database.dropCol("french_league_1_top_scorers")
+#DatabaseAtlas.dropCol("french_league_1_top_scorers")
 
 def get_teams_colors():
     all_team_colors = []
@@ -366,7 +367,7 @@ def get_teams_colors():
 def get_team_calendar(team):
     fixture_id = 1
     team_calendar = {}
-    for match in Database.findAll("french_league_1", {}):
+    for match in DatabaseAtlas.findAll("french_league_1", {}):
         if match["home_team"] == fifa_to_clubs[team] or match["away_team"] == fifa_to_clubs[team]:
             match["home_team"] = clubs_to_fifa[match["home_team"]]
             match["away_team"] = clubs_to_fifa[match["away_team"]]
@@ -376,6 +377,6 @@ def get_team_calendar(team):
     return team_calendar
 
 teams_colors = get_teams_colors()
-top_assists = Database.findAll("french_league_1_top_assists", {})
+top_assists = DatabaseAtlas.findAll("french_league_1_top_assists", {})
 logging.debug(top_assists)
 get_team_calendar("AS Monaco")

@@ -1,7 +1,8 @@
 from log_config import logging
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from mongo_collections import Database
+#from mongo_collections import Database
+from m import DatabaseAtlas
 from match import Match
 from clubs import club_names, clubs, fifa_names
 from operator import itemgetter
@@ -36,7 +37,8 @@ def get_matches(matches_number):
         if home_team_goals_element != "":
             Match1 = Match({"home_team":home_team_element, "home_team_goals":int(home_team_goals_element), "away_team_goals":int(away_team_goals_element)
                                , "away_team":away_team_element})
-            Database.insertOne("french_league_1", Match1.__dict__)
+            #Database.insertOne("french_league_1", Match1.__dict__)
+            DatabaseAtlas.insertOne("french_league_1", Match1.__dict__)
             logging.debug(Match1)
 
 # driver = webdriver.Chrome("chromedriver_2.exe")
@@ -64,7 +66,8 @@ def get_matches(matches_number):
 # get_matches(41)
 # driver.quit()
 
-matches = [item for item in Database.findAll("french_league_1", {})]
+#matches = [item for item in Database.findAll("french_league_1", {})]
+matches = [item for item in DatabaseAtlas.findAll("french_league_1", {})]
 
 def home_team_won(item, home_index, away_index):
     clubs[home_index]["pm"] += 1
