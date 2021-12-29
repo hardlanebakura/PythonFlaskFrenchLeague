@@ -156,7 +156,7 @@ def get_latest_team_match(team):
     return matches_for_team[-1]
 
 def get_next_match_for_team(team):
-    for match in Database.findAll("french_ligue_1_upcoming_matches", {}):
+    for match in DatabaseAtlas.findAll("french_ligue_1_upcoming_matches", {}):
 
         home_team = match["homeTeam"]["name"]
         away_team = match["awayTeam"]["name"]

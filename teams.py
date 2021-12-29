@@ -1,4 +1,4 @@
-from api_keys import API_FOOTBALL_KEY
+#from api_keys import API_FOOTBALL_KEY
 import http.client
 import json
 import pandas as pd
@@ -10,9 +10,11 @@ from goalkeeper import Goalkeeper
 from m import DatabaseAtlas
 import difflib
 from teams_info import teams_info
+import os
 
 connection = http.client.HTTPConnection('api.football-data.org')
-headers = { 'X-Auth-Token': API_FOOTBALL_KEY }
+API_FOOTBALL_KEY = os.getenv('API_FOOTBALL_KEY')
+headers = { 'X-Auth-Token': str(API_FOOTBALL_KEY) }
 
 
 #get detailed info for teams

@@ -1,10 +1,16 @@
-from mongodb_connection import MONGODB_CONNECTION
+#from mongodb_connection import MONGODB_CONNECTION
 from pymongo import MongoClient
+import os
+
+MONGODB_CONNECTION = os.getenv('MONGODB_CONNECTION')
+print(MONGODB_CONNECTION)
+print(type(MONGODB_CONNECTION))
+
+#print(os.environ['ASD'])
 
 class DatabaseAtlas(object):
 
-    MONGODBPORT = MONGODB_CONNECTION
-    client = MongoClient(MONGODBPORT, serverSelectionTimeoutMS = 2000)
+    client = MongoClient(MONGODB_CONNECTION, serverSelectionTimeoutMS = 2000)
     db = client["test"]
 
     @staticmethod
@@ -29,4 +35,5 @@ class DatabaseAtlas(object):
         c = DatabaseAtlas.db[col].drop()
         return c
 
-
+for match in DatabaseAtlas.findAll("french_ligue_1_upcoming_matches", {}):
+    print(match)
