@@ -3,10 +3,6 @@ from pymongo import MongoClient
 import os
 
 MONGODB_CONNECTION = os.getenv('MONGODB_CONNECTION')
-print(MONGODB_CONNECTION)
-print(type(MONGODB_CONNECTION))
-
-#print(os.environ['ASD'])
 
 class DatabaseAtlas(object):
 
