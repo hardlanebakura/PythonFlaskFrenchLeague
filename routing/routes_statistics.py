@@ -11,7 +11,7 @@ match_least_goals = matches_goals_number_records()[0]
 match_most_goals = matches_goals_number_records()[1]
 
 statistics_page = Blueprint('statistics', __name__,
-                      template_folder='templates', static_folder='static', url_prefix='/statistics')
+                      template_folder='Templates', static_folder='static', url_prefix='/statistics')
 
 @statistics_page.route("/")
 def statistics():
