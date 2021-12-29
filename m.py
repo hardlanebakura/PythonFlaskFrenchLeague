@@ -1,11 +1,9 @@
-MONGODB_CONNECTION = "mongodb+srv://h3h4h2000:Aftmt111@cluster0.y5kq1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+from mongodb_connection import MONGODB_CONNECTION
 from pymongo import MongoClient
-
-client = MongoClient(MONGODB_CONNECTION, serverSelectionTimeoutMS = 2000)
 
 class DatabaseAtlas(object):
 
-    MONGODBPORT = "mongodb://localhost:27017/"
+    MONGODBPORT = MONGODB_CONNECTION
     client = MongoClient(MONGODBPORT, serverSelectionTimeoutMS = 2000)
     db = client["test"]
 
@@ -30,3 +28,5 @@ class DatabaseAtlas(object):
     def dropCol(col):
         c = DatabaseAtlas.db[col].drop()
         return c
+
+
