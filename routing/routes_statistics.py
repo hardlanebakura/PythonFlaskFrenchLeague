@@ -15,7 +15,7 @@ statistics_page = Blueprint('statistics', __name__,
 
 @statistics_page.route("/")
 def statistics():
-    return render_template("/statistics/index.html", latest_matches = matches[-5:], clubs = clubs_sorted, teams = fifa_names, team = fifa_names[10], top_scorers = top_scorers,
+    return render_template("statistics/index.html", latest_matches = matches[-5:], clubs = clubs_sorted, teams = fifa_names, team = fifa_names[10], top_scorers = top_scorers,
                            highest_match_capacity = highest_match_capacity(), match_most_goals = match_most_goals, match_least_goals = match_least_goals, top_assists = top_assists,
                            fifa_to_clubs = fifa_to_clubs, best_managers = best_managers, biggest_upset = find_biggest_upset())
 
