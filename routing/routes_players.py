@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, url_for, session, jsonify, Blueprint, abort
-#from flask_paginate import Pagination, get_page_parameter, get_page_args
 from jinja2 import TemplateNotFound
 from log_config import logging
 from matches import matches, clubs_sorted
