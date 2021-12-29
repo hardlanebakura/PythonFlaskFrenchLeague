@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, url_for, session, jsonify, Blueprint, abort
-from flask_paginate import Pagination, get_page_parameter, get_page_args
+#from flask_paginate import Pagination, get_page_parameter, get_page_args
 from jinja2 import TemplateNotFound
 from log_config import logging
 from matches import matches, clubs_sorted
@@ -21,9 +21,11 @@ def players():
         search = True
 
     page = request.args.get('page', default = 1, type = int)
-    pagination = Pagination(page = page, per_page = 5, search = search, total = 100, css_framework="bootstrap3")
+    #pagination = Pagination(page = page, per_page = 5, search = search, total = 100, css_framework="bootstrap3")
+    #return render_template("/players/players.html", all_players=all_players[:100], latest_matches=matches[-5:],
+                           #pagination=pagination)
 
-    return render_template("/players/players.html", all_players = all_players[:100], latest_matches = matches[-5:], pagination = pagination)
+    return render_template("/players/players.html", all_players = all_players[:100], latest_matches = matches[-5:])
 
 @players_pages.route("/<int:id>")
 def player(id):
