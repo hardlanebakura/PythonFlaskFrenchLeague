@@ -7,7 +7,7 @@ from routing.routes_team import *
 from routing.routes_news import *
 from routing.routes_statistics import *
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='Templates')
 
 #Configuring application
 config1(app.config, app.jinja_env)
