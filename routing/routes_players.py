@@ -10,7 +10,7 @@ from skill_diagram import get_skill_diagram_for_player
 PLAYER_ROWS_PER_PAGE = 40
 
 players_pages = Blueprint('players', __name__,
-                        template_folder='templates', static_folder='static', url_prefix="/players")
+                        template_folder='Templates', static_folder='static', url_prefix="/players")
 
 @players_pages.route("/")
 def players():

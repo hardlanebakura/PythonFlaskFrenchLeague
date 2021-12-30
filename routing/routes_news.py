@@ -6,7 +6,7 @@ from clubs import fifa_names
 from teams import *
 
 news_page = Blueprint('news', __name__,
-                        template_folder='templates', static_folder='static')
+                        template_folder='Templates', static_folder='static')
 
 news_page_ids = {
     1: "Ben Yedder",
