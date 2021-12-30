@@ -6,4 +6,5 @@ It uses:
 <li>Unit testing</li>
 <li>Object relational mapping</li>
 <li>Datasets and matplotting charts</li>
+<li>Fifa player dataset to make players tab with each player statistics</li>
 </ul>
