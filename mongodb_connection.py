@@ -1,1 +1,0 @@
-MONGODB_CONNECTION = "mongodb+srv://h3h4h2000:Aftmt111@cluster0.y5kq1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"

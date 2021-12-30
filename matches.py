@@ -137,15 +137,13 @@ def process_all_matches():
         else:
             away_team_won(item, home_index, away_index)
 
+matches_length = int(len(matches)/2)
+matches = matches[:matches_length]
 process_all_matches()
-#logging.debug(matches)
-#clubs = sorted(clubs, key = lambda k: k['pts'], reverse=True)
 clubs_sorted = sorted(clubs, key=itemgetter('pts'), reverse=True)
 rank = itertools.count()
 for club in clubs_sorted:
     club["rank"] = next(rank) + 1
-logging.debug(clubs_sorted)
-logging.debug(matches)
 
 def get_latest_team_match(team):
     matches_for_team = []
@@ -232,3 +230,4 @@ def highest_match_capacity():
 #highest_match_capacity()
 #c = get_next_match_for_team("AS Monaco")
 #logging.info(c)
+
