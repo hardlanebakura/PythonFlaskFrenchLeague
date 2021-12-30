@@ -17,8 +17,7 @@ def team(id):
         team_detailed_stats = get_detailed_stats_for_team(team)
         logging.info(team_info)
         latest_match = get_latest_team_match(team)
-        upcoming_match = get_next_match_for_team(team)
-        logging.debug(upcoming_match)
+        upcoming_match = next_matches
         return render_template("/teams/team.html", latest_matches = matches[-5:], id = id, team = team, top_scorers = get_top_scorers_for_team(team), team_info = team_info, team_detailed_stats = team_detailed_stats,
                                clubs = clubs_sorted, latest_match = latest_match, upcoming_match = upcoming_match, fifa_to_clubs = fifa_to_clubs, teams_colors = teams_colors)
     except TemplateNotFound:

@@ -176,7 +176,13 @@ def get_next_match_for_team(team):
         if home_team_1 == team or away_team_1 == team:
             match["homeTeam"]["name"] = home_team_1
             match["awayTeam"]["name"] = away_team_1
-            return match
+            logging.info(match['homeTeam']['name'])
+            return {"home_team": match["homeTeam"]["name"], "away_team":match["awayTeam"]["name"]}
+
+next_matches = {}
+for team in fifa_names:
+    next_matches[team] = get_next_match_for_team(team)
+logging.info(next_matches)
 
 def matches_goals_number_records():
 
@@ -223,4 +229,6 @@ def highest_match_capacity():
 #response = requests.get("https://soccer.sportmonks.com/api/v2.0/leagues")
 #print(response.json())
 
-highest_match_capacity()
+#highest_match_capacity()
+#c = get_next_match_for_team("AS Monaco")
+#logging.info(c)
