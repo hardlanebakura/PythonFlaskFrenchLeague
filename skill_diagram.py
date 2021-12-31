@@ -22,6 +22,6 @@ def get_skill_diagram_for_player(player):
                       )
 
 
-    fig.write_image("static/images/player_skill_diagram.png")
+    fig.write_image("static/images/charts/player_skill_diagram.png")
 
 get_skill_diagram_for_player(all_players[104])

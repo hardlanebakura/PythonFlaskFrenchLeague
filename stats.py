@@ -154,10 +154,10 @@ def get_weight_kg_skill_relationship():
     #plt.xticks(y_pos, labels, np.arange(0, 100, 0.712123))
     plt.ylabel('Player overall skill')
     plt.xlabel('Weight')
-    plt.title('Player weight to skill relationship')
+    #plt.title('Player weight to skill relationship')
 
     #always call savefig before plt.show()
-    plt.savefig("./static/images/playerweighttoskillrelationshipchart.png")
+    plt.savefig("./static/images/charts/playerweighttoskillrelationshipchart.png")
     logging.info(plt.rcParams)
     return
 
@@ -188,9 +188,9 @@ def get_foreigners_rank_relationship():
     # plt.xticks(y_pos, labels, np.arange(0, 100, 0.712123))
     plt.ylabel('Foreigners in team')
     plt.xlabel('Rank')
-    plt.title('Rank in relation to number of foreigners')
+    #plt.title('Rank in relation to number of foreigners')
 
-    plt.savefig("./static/images/teamforeignerstorankrelationshipchart.png")
+    plt.savefig("./static/images/charts/teamforeignerstorankrelationshipchart.png")
 
     return player_nationalities
 
@@ -198,3 +198,4 @@ get_foreigners_rank_relationship()
 #get_chart_player_countries()
 find_biggest_upset()
 get_preferred_foot_teams()
+get_weight_kg_skill_relationship()

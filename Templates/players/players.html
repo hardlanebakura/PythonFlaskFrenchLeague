@@ -2,6 +2,10 @@
 
 {% block h_1 %}
 
+<script>
+var fifa_names = {{ fifa_names|tojson }}
+</script>
+
 <link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/players.css') }}">
 
 {% endblock %}
@@ -40,7 +44,9 @@
         {% endif %}
         <img class = "players_club" src = "{{ player.club_logo_url }}">
             <div class = "players_player_club">
+                <a href = "../teams/{{ fifa_names.index(player.club_name) + 1 }}">
                 {{ player.club_name }}
+                </a>
             </div>
     </div>
 

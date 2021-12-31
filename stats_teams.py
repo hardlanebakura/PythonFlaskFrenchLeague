@@ -149,3 +149,4 @@ def get_accuracy_of_teams():
 best_managers = get_best_managers()
 get_goals_teams()
 teams_accuracy = get_accuracy_of_teams()
+logging.debug(best_managers)

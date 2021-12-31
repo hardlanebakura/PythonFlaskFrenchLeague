@@ -1,4 +1,3 @@
-#from mongodb_connection import MONGODB_CONNECTION
 from pymongo import MongoClient
 import os
 
@@ -31,5 +30,13 @@ class DatabaseAtlas(object):
         c = DatabaseAtlas.db[col].drop()
         return c
 
-for match in DatabaseAtlas.findAll("french_ligue_1_upcoming_matches", {}):
-    print(match)
+#for match in DatabaseAtlas.findAll("french_ligue_1_upcoming_matches", {}):
+    #print(match)
+c = 0
+for item in DatabaseAtlas.findAll("french_league_1_team_info", {}):
+    c = c + 1
+    print(item)
+print(c)
+print(DatabaseAtlas.db.list_collection_names())
+print(os.getenv('MONGODB_CONNECTION'))
+

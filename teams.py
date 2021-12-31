@@ -11,6 +11,7 @@ from m import DatabaseAtlas
 import difflib
 from teams_info import teams_info
 import os
+from operator import itemgetter
 
 connection = http.client.HTTPConnection('api.football-data.org')
 API_FOOTBALL_KEY = os.getenv('API_FOOTBALL_KEY')
@@ -19,9 +20,9 @@ headers = { 'X-Auth-Token': str(API_FOOTBALL_KEY) }
 
 #get detailed info for teams
 connection.request('GET', '/v2/competitions/2015/teams', None, headers )
-response_teams = json.loads(connection.getresponse().read().decode())
+#response_teams = json.loads(connection.getresponse().read().decode())
 
-logging.debug(response_teams)
+#logging.debug(response_teams)
 
 
 #get detailed info for scorers
@@ -36,10 +37,10 @@ logging.debug(response_top_scorers)
 
 
 #get detailed info for one player
-connection.request('GET', '/v2/players/8517', None, headers )
-response = json.loads(connection.getresponse().read().decode())
+#connection.request('GET', '/v2/players/8517', None, headers )
+#response = json.loads(connection.getresponse().read().decode())
 
-logging.debug(response)
+#logging.debug(response)
 
 df = pd.read_csv("fifa-20-complete-dataset/players_22.csv")
 
@@ -58,7 +59,6 @@ get_updated_categories(player_categories)
 
 d = df.to_dict("index")
 players = [item[1] for item in d.items()]
-logging.debug(players[:140])
 players_for_ligue_1_teams = []
 for club in clubs:
     players_for_ligue_1_teams.append({"{}".format(club["name"]):[]})
@@ -92,9 +92,6 @@ def get_all_players():
         #players_for_ligue_1_teams.index(fifa_names.index(item))
 
 all_players = get_all_players()
-#logging.debug(players_for_ligue_1_teams[0])
-#for i in range(20):
-    #logging.debug(len(players_for_ligue_1_teams[i][clubs[i]["name"]]))
 
 def player_positions():
 
@@ -108,7 +105,6 @@ def player_positions():
         else:
             player.player_positions = ["GK"]
         for i in range(1, len(player.player_positions)):
-            logging.debug(player.player_positions)
             player.player_positions[i] = player.player_positions[i][1:]
     return
 
@@ -134,6 +130,7 @@ def get_top_scorers():
         for player in all_players:
 
             #scorer playerdateOfBirth playerCountryOfBirth playernationality playershirtNumber
+            # swap Reunion nationality in top_scorers with "France"
             #dob nationality_name club_jersey_number
             if scorer["player"]["dateOfBirth"] == player.dob and (scorer["player"]["nationality"] == player.nationality_name or (scorer["player"]["nationality"] == "Reunion" and player.nationality_name == "France")):
                 top_scorers.append(player)
@@ -142,57 +139,29 @@ def get_top_scorers():
 
 top_scorers = get_top_scorers()
 
-#print([i["player"]["name"] for i in k])
-logging.debug([scorer["player"]["name"] for scorer in response_top_scorers["scorers"]])
-
-#swap Reunion nationality in top_scorers with "France"
-logging.debug([scorer["player"]["nationality"] for scorer in response_top_scorers["scorers"]])
-print(top_scorers)
-print(len(top_scorers))
+teams_all_info_df = pd.read_csv("fifa-20-complete-dataset/ligue_1_teams_info.csv", encoding = "ISO-8859-1")
+teams_all_info_d = teams_all_info_df.to_dict("index")
+response_teams = {}
+response_teams["teams"] = [item for item in teams_all_info_d.values()]
 
 def get_info_for_team(team):
-    response_team_names = [item["name"] for item in response_teams["teams"]]
-    response_team = difflib.get_close_matches(team, response_team_names)
-    if team == "LOSC Lille":
-        response_team = ["Lille OSC"]
-    response_team = response_team[0]
     for item in response_teams["teams"]:
-        if item["name"] == response_team:
-            return item
+        team_name = difflib.get_close_matches(item["name"], fifa_names)
+        if item["shortName"] == "Lille":
+            team_name = ["LOSC Lille"]
+        d = item.copy()
+        d["name"] = team_name[0]
+        return d
+    # for item in DatabaseAtlas.findAll("french_league_1_team_info", {}):
+    #     if item["name"] == team:
+    #         return item
 
 #get_players_for_team("Nice")
 logging.debug(get_info_for_team("Olympique de Marseille"))
 
-print(all_players[41])
-
-def get_player_attributes(player):
-    #formations 4-4-2 and 4-3-3
-    #using formation 4-4-2
-    return player
-
-    #using formation 4-3-3
-
-get_player_attributes(all_players[14])
-#logging.debug(get_player_attributes(all_players[14]["club_jersey_number"]))
-
 def get_player_diagrams(player):
     Player1 = player
     Player1.power = player.power_shot_power + player.power_jumping + player.power_long_shots + player.power_strength
-
-Player1 = all_players[14]
-logging.debug(Player1)
-
-# for club in clubs:
-#     logging.debug(club["name"])
-#     logging.debug(len(get_players_for_team(club["name"])))
-
-#for player in players:
-    #if player["nationality_name"] == "France":
-        #logging.debug(player["club_name"])
-
-logging.debug(len(all_players))
-logging.debug(len(all_goalkeepers))
-logging.debug(top_scorers[-1])
 
 def get_all_scorers():
     connection.request('GET', '/v2/competitions/2015/scorers?limit=240', None, headers)
@@ -301,21 +270,13 @@ def get_similar_players(selected_player):
                         logging.debug(player_best_position_value_total)
                     else:
                         if "-" not in player_best_position_value_1[0]:
-                        #logging.debug(player_best_position_value_1[0])
-                        #logging.debug(type(player_best_position_value_1[0]))
-                        #player_best_position_value_total = int(player_best_position_value_1[0])
                             player_best_position_value_total = int(player_best_position_value_1[0])
                         else:
                             logging.debug(player_best_position_value_1[0])
-                            logging.debug("1111111")
                             player_best_position_value_m = player_best_position_value_1[0].split("-")
                             player_best_position_value_total = int(player_best_position_value_m[0]) - int(player_best_position_value_m[1])
-                #logging.debug(player_best_position.lower())
-                #logging.debug(player_best_position_value_total)
                 selected_player_position = selected_player.player_positions[chosen_index].lower()
                 selected_player_value = selected_player.__getattribute__(selected_player_position)
-                logging.debug("4")
-                #logging.debug(selected_player_value)
                 if type(selected_player_value) == str:
                     selected_player_value_1 = selected_player_value.split("+")
                     if len(selected_player_value_1) > 1:
@@ -323,29 +284,24 @@ def get_similar_players(selected_player):
                         logging.debug(selected_player_value_total)
                     else:
                         selected_player_value_total = int(selected_player_value_1[0])
-                #logging.debug("1")
-                logging.debug(selected_player_value_total)
-                logging.debug(selected_player.short_name)
-                logging.debug(player.short_name)
-                logging.debug(abs(selected_player_value_total - player_best_position_value_total))
                 dict = player.__dict__
                 dict["abs"] = selected_player_value_total - player_best_position_value_total
                 similar_players.append(dict)
     similar_players = sorted(similar_players, key=lambda d: d['abs'])
-    logging.debug(similar_players[:10])
     return similar_players[:10]
 
 def get_similar_goalkeepers(goalkeeper):
     similar_goalkeepers = []
-    for player in all_players:
-        if player.player_positions == ["GK"]:
-            logging.debug(player)
+    for player in all_goalkeepers:
+        if player.long_name != goalkeeper.long_name:
+            d = player.__dict__
+            d["abs"] = abs(goalkeeper.overall - player.overall)
+            logging.info(d)
+            similar_goalkeepers.append(d)
+    similar_goalkeepers = sorted(similar_goalkeepers, key=itemgetter('abs'))
 
-    return similar_goalkeepers
+    return similar_goalkeepers[:10]
 
-get_similar_players(all_players[170])
-list1 = [1,2,3,4,5,6,7]
-logging.debug(list1[:2])
 get_similar_goalkeepers(all_players[100])
 
 logging.debug(get_players_for_team("AS Monaco"))
@@ -375,10 +331,10 @@ def get_team_calendar(team):
             match["away_team"] = clubs_to_fifa[match["away_team"]]
             team_calendar["Fixture {}".format(fixture_id)] = match
             fixture_id = fixture_id + 1
-    logging.info(team_calendar)
     return team_calendar
 
 teams_colors = get_teams_colors()
 top_assists = DatabaseAtlas.findAll("french_league_1_top_assists", {})
-logging.debug(top_assists)
 get_team_calendar("AS Monaco")
+logging.debug(all_goalkeepers)
+#logging.debug(teams_all_info)

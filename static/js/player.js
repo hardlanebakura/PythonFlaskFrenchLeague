@@ -58,6 +58,7 @@ for (let i = 0; i < playerPositions.length; i++) {
     let positionValue = playerPositions[i].childNodes[3];
     console.log(positionValue);
     var values = positionValue.innerText.split("+");
+    var values1 = positionValue.innerText.split("-");
 
     if (i == playerPositions.length - 1) {
     if (typeof(m) == "undefined") playerPositions[i].style.transform = "translate(140px,-441px)";
@@ -66,6 +67,24 @@ for (let i = 0; i < playerPositions.length; i++) {
     console.log(!(typeof(m) == "undefined"));
     if (values.length > 1) {
         let sum = parseInt(values[0]) + parseInt(values[1]);
+        positionValue.innerText = sum;
+        console.log(sum);
+        console.log(i);
+        if (sum > 79) playerPositions[i].style.backgroundColor = tier1Skills;
+        else if (sum > 69) playerPositions[i].style.backgroundColor = tier2Skills;
+        else if (sum > 59) playerPositions[i].style.backgroundColor = tier3Skills;
+        else playerPositions[i].style.backgroundColor = tier4Skills;
+    }
+    else {
+        let sum = positionValue.innerText;
+        if (sum > 79) playerPositions[i].style.backgroundColor = tier1Skills;
+        else if (sum > 69) playerPositions[i].style.backgroundColor = tier2Skills;
+        else if (sum > 59) playerPositions[i].style.backgroundColor = tier3Skills;
+        else playerPositions[i].style.backgroundColor = tier4Skills;
+    }
+
+    if (values1.length > 1) {
+        let sum = parseInt(values1[0]) - parseInt(values1[1]);
         positionValue.innerText = sum;
         console.log(sum);
         console.log(i);
@@ -123,7 +142,13 @@ for (let i = 0; i < playerDiagramPlayerPosition.length; i++) {
     if (defendersPositions.includes(playerDiagramPlayerPosition[i].innerText)) playerDiagramPlayerPosition[i].style.color = "green";
     else if (midfieldersPositions .includes(playerDiagramPlayerPosition[i].innerText)) playerDiagramPlayerPosition[i].style.color = "aquamarine";
     else if (forwardsPositions.includes(playerDiagramPlayerPosition[i].innerText)) playerDiagramPlayerPosition[i].style.color = "red";
-    else playerDiagramPlayerPosition[i].style.color = "yellow";
+    else {
+    playerDiagramPlayerPosition[i].style.backgroundColor = "yellow";
+    playerDiagramPlayerPosition[i].style.color = "#000";
+    playerDiagramPlayerPosition[i].style.paddingTop = "4px";
+    playerDiagramPlayerPosition[i].style.marginTop = "0px";
+    }
+
 
 }
 

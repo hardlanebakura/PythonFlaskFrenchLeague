@@ -46,7 +46,7 @@
 
     </div>
 
-    <div class = "title_header">
+    <div class = "title_header" style = "margin-bottom:100px;">
         GENERAL STATISTICS
     </div>
 
@@ -97,10 +97,13 @@
                 TOP MANAGERS
             </div>
             <div class = "team_top_scorer">
-                    <div class = "team_top_scorer_image">
-                    <img src = "{{ best_managers[0]['coach_url'] }}">
-                    </div>
-                    {{ best_managers[0]["coach"] }}
+                    {% set c = (teams.index(best_managers[0]['team']) + 1)|string + '/staff' %}
+                    <a href = "../teams/{{ c }}">
+                        <div class = "team_top_scorer_image">
+                        <img src = "{{ best_managers[0]['coach_url'] }}">
+                        </div>
+                        {{ best_managers[0]["coach"] }}
+                    </a>
             </div>
             {% for i in range(1, 10) %}
             <div class = "team_scorer">

@@ -20,11 +20,8 @@ def players():
         search = True
 
     page = request.args.get('page', default = 1, type = int)
-    #pagination = Pagination(page = page, per_page = 5, search = search, total = 100, css_framework="bootstrap3")
-    #return render_template("/players/players.html", all_players=all_players[:100], latest_matches=matches[-5:],
-                           #pagination=pagination)
 
-    return render_template("/players/players.html", all_players = all_players[:100], latest_matches = matches[-5:])
+    return render_template("/players/players.html", all_players = all_players[:100], latest_matches = matches[-5:], fifa_names = fifa_names)
 
 @players_pages.route("/<int:id>")
 def player(id):
@@ -35,4 +32,4 @@ def player(id):
         get_skill_diagram_for_player(selected_player)
         return render_template("/players/player.html", all_players = all_players[:100], latest_matches = matches[-5:], positions = positions, similar_players = get_similar_players(selected_player),  player = selected_player)
     elif isinstance(selected_player, Goalkeeper):
-        return render_template("/players/gk.html", all_players=all_players[:100], latest_matches=matches[-5:], positions=positions, m = 1, similar_players = get_similar_players(selected_player), player=selected_player)
+        return render_template("/players/gk.html", all_players=all_players[:100], latest_matches=matches[-5:], positions=positions, m = 1, similar_players = get_similar_goalkeepers(selected_player), player=selected_player)

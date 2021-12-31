@@ -11,9 +11,7 @@
 
 {% block body %}
 
-    <div class = "general_info_header">
-        Ligue 1 Uber Eats Statistics
-    </div>
+    &nbsp;
     <div class = "teams_team_overview">
             <img src = "{{ url_for('static', filename = '/images/ratio_18_11_11_11.jpg')}}">
         <div class = "teams_team_name">
@@ -323,7 +321,10 @@
     </div>
 
     <div class = "rank_to_foreigners_relationship">
-        <img src = "{{ url_for('static', filename = '/images/teamforeignerstorankrelationshipchart.png') }}">
+        <div class = "team_info_header">
+            RANK IN RELATION TO NUMBER OF FOREIGNERS
+        </div>
+        <img src = "{{ url_for('static', filename = '/images/charts/teamforeignerstorankrelationshipchart.png') }}">
     </div>
 
 <script type = "text/javascript" src = "{{ url_for('static', filename = '/js/statistics.js')}}"></script>
