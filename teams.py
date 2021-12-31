@@ -12,7 +12,6 @@ import difflib
 from teams_info import teams_info
 import os
 from operator import itemgetter
-from matches import clubs_sorted
 
 connection = http.client.HTTPConnection('api.football-data.org')
 API_FOOTBALL_KEY = os.getenv('API_FOOTBALL_KEY')
@@ -213,12 +212,6 @@ def get_roles_for_team(team):
     squad = {"goalkeepers":goalkeepers, "defenders":defenders, "midfielders":midfielders, "forwards":forwards}
     return squad
 
-def get_team_ranking_in_various_parameters(team):
-    goals_scored = sorted(clubs_sorted, key=itemgetter('gs'))
-    goals_conceeded = sorted(clubs_sorted, key=itemgetter('gc'))
-    logging.debug(get_players_for_team(team))
-
-
 logging.debug(fifa_names)
 for team in fifa_names:
     logging.debug(get_info_for_team(team))
@@ -330,7 +323,4 @@ def get_team_calendar(team):
 
 teams_colors = get_teams_colors()
 top_assists = DatabaseAtlas.findAll("french_league_1_top_assists", {})
-get_team_calendar("AS Monaco")
-logging.debug(all_goalkeepers)
 #logging.debug(teams_all_info)
-get_team_ranking_in_various_parameters("AS Monaco")
