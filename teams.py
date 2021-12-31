@@ -12,6 +12,7 @@ import difflib
 from teams_info import teams_info
 import os
 from operator import itemgetter
+from matches import clubs_sorted
 
 connection = http.client.HTTPConnection('api.football-data.org')
 API_FOOTBALL_KEY = os.getenv('API_FOOTBALL_KEY')
@@ -52,8 +53,6 @@ def get_updated_categories(categories):
     for category in categories:
         df[category] = df[category].fillna(0)
         df[category] = df[category].astype(int)
-
-
 
 get_updated_categories(player_categories)
 
@@ -214,15 +213,11 @@ def get_roles_for_team(team):
     squad = {"goalkeepers":goalkeepers, "defenders":defenders, "midfielders":midfielders, "forwards":forwards}
     return squad
 
-get_detailed_stats_for_team("AS Monaco")
-logging.debug(get_detailed_stats_for_team("AS Monaco"))
-logging.debug(get_info_for_team("AS Monaco"))
-#logging.debug(response_teams["teams"])
-#logging.debug(get_players_for_team("AS Monaco"))
-#get_roles_for_team(get_players_for_team("AS Monaco"))
-#logging.debug(get_roles_for_team(get_players_for_team("AS Monaco")))
-#for item in logging.debug(get_roles_for_team(get_players_for_team("AS Monaco"))):
-    #logging.debug(item)
+def get_team_ranking_in_various_parameters(team):
+    goals_scored = sorted(clubs_sorted, key=itemgetter('gs'))
+    goals_conceeded = sorted(clubs_sorted, key=itemgetter('gc'))
+    logging.debug(get_players_for_team(team))
+
 
 logging.debug(fifa_names)
 for team in fifa_names:
@@ -338,3 +333,4 @@ top_assists = DatabaseAtlas.findAll("french_league_1_top_assists", {})
 get_team_calendar("AS Monaco")
 logging.debug(all_goalkeepers)
 #logging.debug(teams_all_info)
+get_team_ranking_in_various_parameters("AS Monaco")

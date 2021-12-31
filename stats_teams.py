@@ -13,14 +13,14 @@ def get_team_salaries():
     all_salaries_and_overall_skills = {}
     for team in fifa_names:
         team_rank = clubs[fifa_names.index(team)]["rank"]
-        logging.info(team_rank)
+        #logging.info(team_rank)
         team_salaries_and_overall_skills = [[player.overall, player.value_eur, player.wage_eur] for player in get_players_for_team(team)]
-        logging.info(team_salaries_and_overall_skills)
+        #logging.info(team_salaries_and_overall_skills)
         team_overall = int(sum([item[0] for item in team_salaries_and_overall_skills])/len([item[0] for item in team_salaries_and_overall_skills]))
         team_value = int(sum([item[1] for item in team_salaries_and_overall_skills])/len([item[1] for item in team_salaries_and_overall_skills]))
         team_wage = int(sum([item[2] for item in team_salaries_and_overall_skills])/len([item[2] for item in team_salaries_and_overall_skills]))
         all_salaries_and_overall_skills[team] = [team_rank, team_overall, team_value, team_wage]
-    team_value = all_salaries_and_overall_skills
+    team_value = all_salaries_and_overall_skills.copy()
     for team in team_value:
         team_value[team] = all_salaries_and_overall_skills[team][2]
     team_value = {k: v for k, v in sorted(team_value.items(), key=itemgetter(1), reverse=True)}
@@ -30,35 +30,36 @@ def get_team_salaries():
     underachieving_teams = []
     overachieving_teams = []
     for team in fifa_names:
-        logging.info(team_value[team])
+        #logging.info(team_value[team])
         for club in clubs_sorted:
             if club["name"] == club_names[fifa_names.index(team)]:
-                logging.info(team)
-                logging.info(club["rank"])
+                #logging.info(team)
+                #logging.info(club["rank"])
                 #logging.info((team, team_value[team]))
                 team_budget_rank = all_values.index((team, team_value[team]))
-                logging.info(team_budget_rank)
+                #logging.info(team_budget_rank)
                 if (team_budget_rank < club["rank"]):
                 #team is underachieving
                     budget_and_rank_diff = club["rank"] - team_budget_rank - 1
-                    logging.info(budget_and_rank_diff)
+                    #logging.info(budget_and_rank_diff)
                     underachieving_teams.append({"name":team, "ranks_below_expectations":budget_and_rank_diff})
                 else:
                 #team is overachieving
                     budget_and_rank_diff = team_budget_rank - club["rank"] - 1
-                    logging.info(budget_and_rank_diff)
+                    #logging.info(budget_and_rank_diff)
                     overachieving_teams.append({"name": team, "ranks_above_expectations": budget_and_rank_diff})
-    logging.debug(team_value)
+    #logging.debug(team_value)
     underachieving_teams = sorted(underachieving_teams, key=itemgetter("ranks_below_expectations"), reverse=True)[:3]
     overachieving_teams = sorted(overachieving_teams, key=itemgetter("ranks_above_expectations"), reverse=True)[:3]
     logging.info(all_salaries_and_overall_skills)
-    logging.info(overachieving_teams)
-    logging.info(team_value)
+    #logging.info(overachieving_teams)
+    #logging.info(team_value)
     d = {"all_salaries":all_values, "lowest_budgets":all_values[-3:], "highest_budgets":all_values[:3], "underachieving_teams":underachieving_teams, "overachieving_teams":overachieving_teams}
-    logging.info(d)
-    return d
+    #logging.info(d)
+    return [d, all_salaries_and_overall_skills]
 
-team_salaries = get_team_salaries()
+team_salaries = get_team_salaries()[0]
+team_budgets = get_team_salaries()[1]
 
 def lower_ranked_beat_higher(team, match):
     #checks if the team beat the higher ranked team

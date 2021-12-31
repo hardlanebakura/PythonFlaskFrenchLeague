@@ -3,6 +3,9 @@
 {% block h_1 %}
 <script>
     var team = {{ team|tojson }}
+    var clubs = {{ clubs|tojson }}
+    var fifaToClubs = {{ fifa_to_clubs|tojson }}
+    var teamsColors = {{ teams_colors|tojson }}
 </script>
 <link rel = "stylesheet" href = "{{ url_for('static', filename = '/css/team.css')}}">
 {% endblock %}
@@ -11,8 +14,7 @@
 
     <br>
     <div class = "teams_team_overview">
-        <img src = "/./static/images/stadiums/stadium-AS-Saint-Étienne.jpg">
-
+            <img src = "{{ url_for('static', filename = '/images/stadiums/stadium-AS-Monaco.jpg')}}">
         <div class = "teams_team_name">
         {{ team }}
         </div>
@@ -76,8 +78,160 @@
 
     </div>
 
+    <div class = "title_header">
+        {{ team }} STATISTICS
+    </div>
+
+    <div class = "team_info">
+        <div class = "team_top_scorers">
+            <div class = "team_info_header">
+                TOP SCORERS
+            </div>
+            <a href = "/players/{{ top_scorers[0].new_id }}">
+            <div class = "team_top_scorer">
+                <div class = "team_top_scorer_image">
+                <img src = "{{ top_scorers[0].player_face_url }}">
+                </div>
+                {{ top_scorers[0].short_name }}
+                {{ top_scorers[0].goals }}
+            </div>
+            </a>
+            {% for i in range(1, 5) %}
+            <div class = "team_scorer">
+                {{ top_scorers[i].short_name }}
+                {{ top_scorers[i].goals }}
+            </div>
+            {% endfor %}
+        </div>
+        <div class = "team_general_info">
+            <div class = "team_info_header" style = "margin-top: -91px;">
+            GENERAL
+            </div>
+            <div class = "team_general_info_1">
+            <div class = "team_general_info_ranking">
+                Ranking {{ team_detailed_stats["rank"] }}
+            </div>
+            <div class = "team_info_detailed_stats">
+                <div class = "team_info_wdl">
+                    <div class = "team_info_wdl_1">
+                        Wins {{ team_detailed_stats["w"] }}
+                    </div>
+                    <div class = "team_info_wdl_1">
+                        Draws {{ team_detailed_stats["d"] }}
+                    </div>
+                    <div class = "team_info_wdl_1">
+                        Losses {{ team_detailed_stats["l"] }}
+                    </div>
+                    <div class = "team_info_total_goals_scored">
+                        Total goals scored {{ team_detailed_stats["gs"] }}
+                    </div>
+                    <div class = "team_info_total_goals_conceeded">
+                        Total goals conceeded {{ team_detailed_stats["gc"] }}
+                    </div>
+                    <div class = "team_info_cards_player_overall">
+                        Player overall ranking {{ team_budgets[team][1] }}
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class = "title_header">
+        LATEST NEWS
+    </div>
     <div class = "team_latest_news">
-        1
+        <div class = "team_tables">
+            <div class = "team_tables_heading">
+                TABLES
+            </div>
+            <div class = "team_tables_menu">
+                <div class = "team_tables_menu_rank">
+                    RANK
+                </div>
+                <div class = "team_tables_menu_teams">
+                    TEAMS
+                </div>
+                <div class = "team_tables_menu_pts">
+                    PTS
+                </div>
+                <div class = "team_tables_menu_played">
+                    PL
+                </div>
+                <div class = "team_tables_menu_goal_difference">
+                    GD
+                </div>
+            </div>
+            <div class = "team_tables_table">
+                {% for club in clubs %}
+                <div class = "team_tables_table_team">
+                <div class = "team_tables_table_team_rank">
+                    {{ club.rank }}
+                </div>
+                <div class = "team_tables_table_team_logo">
+                    <img>
+                </div>
+                <div class = "team_tables_table_team_name">
+                    {{ club.name }}
+                </div>
+                 <div class = "team_tables_table_team_pts">
+                    {{ club.pts }}
+                 </div>
+                <div class = "team_tables_table_team_pm">
+                    {{ club.pm }}
+                 </div>
+                <div class = "team_tables_table_team_gd">
+                    {{ club.gd }}
+                </div>
+                </div>
+                {% endfor %}
+            </div>
+            </div>
+            <div class = "team_latest_news_1">
+            <div class = "team_latest_news_row">
+                <div class = "team_latest_news_news">
+                    <a href = "/news/1">
+                        <div class = "team_latest_news_image">
+                            <img src = "{{ url_for('static', filename = '/images/news/Ben_Yedder.jpg') }}">
+                        </div>
+                        <div class = "team_latest_news_title">
+                            Ben Yedder
+                        </div>
+                    </a>
+                </div>
+                <div class = "team_latest_news_news">
+                    <a href = "/news/2">
+                        <div class = "team_latest_news_image">
+                            <img src = "https://www.getfootballnewsfrance.com/assets/fbl-fra-ligue1-reims-metz-806x537.jpg">
+                        </div>
+                        <div class = "team_latest_news_title">
+                            David Guion
+                        </div>
+                    </a>
+                </div>
+            </div>
+           <div class = "team_latest_news_row">
+                <div class = "team_latest_news_news">
+                    <a href = "/news/3">
+                        <div class = "team_latest_news_image">
+                            <img src = "{{ url_for('static', filename = '/images/news/podcast_logo.png') }}">
+                        </div>
+                        <div class = "team_latest_news_title">
+                            Official podcast
+                        </div>
+                    </a>
+                </div>
+                <div class = "team_latest_news_news">
+                    <a href = "/news/4">
+                        <div class = "team_latest_news_image">
+                            <img src = "{{ url_for('static', filename = '/images/news/Contract_Extensions.jpg') }}">
+                        </div>
+                        <div class = "team_latest_news_title">
+                            Contract extensions
+                        </div>
+                    </a>
+                </div>
+            </div>
+            </div>
     </div>
 
 <script type = "text/javascript" src = "{{ url_for('static', filename = '/js/team.js')}}"></script>

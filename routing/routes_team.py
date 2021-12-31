@@ -5,6 +5,7 @@ from matches import *
 from clubs import *
 from teams import *
 from teams_info import teams_info
+from stats_teams import *
 
 team_page = Blueprint('team', __name__,
                         template_folder='templates', static_folder='static')
@@ -59,8 +60,11 @@ def team_staff(id):
 
 @team_page.route('/teams/<int:id>/stats')
 def team_stats(id):
+    team = fifa_names[id - 1]
+    team_detailed_stats = get_detailed_stats_for_team(team)
     try:
-        return render_template("/teams/team_stats.html", latest_matches=matches[-5:], id=id, team=fifa_names[id - 1])
+        return render_template("/teams/team_stats.html", latest_matches=matches[-5:], id=id, team=team, team_detailed_stats = team_detailed_stats, teams_colors = teams_colors, clubs = clubs, fifa_to_clubs = fifa_to_clubs,
+                               team_budgets = team_budgets, top_scorers = get_top_scorers_for_team(team))
     except TemplateNotFound:
         abort(404)
 
