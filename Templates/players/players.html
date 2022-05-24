@@ -3,10 +3,12 @@
 {% block h_1 %}
 
 <script>
-var fifa_names = {{ fifa_names|tojson }}
+    var fifa_names = {{ fifa_names|tojson }}
 </script>
 
-<link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/players.css') }}">
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/players.css') }}">
+    <link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/bootstrap_pagination.css') }}">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 {% endblock %}
 
@@ -18,39 +20,50 @@ var fifa_names = {{ fifa_names|tojson }}
         Ligue 1 Uber Eats players
     </div>
 
-{% for player in all_players %}
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <tbody>
+            {% for player in all_players %}
 
-    <div class = "players_player">
-        <div class = "player_player_name">
-            <a class = "players_player_link" href = "{{ player.player_id }}">
-            {{ player.short_name }}
-            </a>
-        </div>
-        <img class = "players_player_images" src = "{{ player.player_face_url }}">
-            <div class = "players_player_positions">
-                {% for position in player.player_positions %}
-                <div class = "players_player_position">
-                    {{ position }}
-                </div>
-                {% endfor %}
-            </div>
-            <div class = "players_player_overall">
-                {{ player.overall }}
-            </div>
-        {% if player.player_tags != "nan" %}
-            <div class = "players_player_tags">
-                {{ player.player_tags }}
-            </div>
-        {% endif %}
-        <img class = "players_club" src = "{{ player.club_logo_url }}">
-            <div class = "players_player_club">
-                <a href = "../teams/{{ fifa_names.index(player.club_name) + 1 }}">
-                {{ player.club_name }}
+            <div class = "players_player">
+                <a class = "players_player_link" href = "{{ player.player_id }}">
+                    <div class = "player_player_name">
+                        {{ player.short_name }}
+                    </div>
+                <a class = "players_player_link" href = "{{ player.player_id }}">
+                    <img class = "players_player_images" src = "{{ player.player_face_url }}">
                 </a>
+                    <div class = "players_player_positions">
+                        {% for position in player.player_positions %}
+                        <div class = "players_player_position">
+                            {{ position }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class = "players_player_overall">
+                        {{ player.overall }}
+                    </div>
+                {% if player.player_tags != "nan" %}
+                    <div class = "players_player_tags">
+                        {{ player.player_tags }}
+                    </div>
+                {% endif %}
+                <a href = "../teams/{{ fifa_names.index(player.club_name) + 1 }}">
+                    <img class = "players_club" src = "{{ player.club_logo_url }}">
+                </a>
+                <div class = "players_player_club">
+                    <a href = "../teams/{{ fifa_names.index(player.club_name) + 1 }}">
+                        {{ player.club_name }}
+                    </a>
+                </div>
             </div>
-    </div>
 
-{% endfor %}
+            {% endfor %}
+
+         </tbody>
+        </table>
+    {{ pagination.links }}
+    </div>
 
 </div>
 

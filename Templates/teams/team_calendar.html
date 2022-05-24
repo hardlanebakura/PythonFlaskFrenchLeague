@@ -80,7 +80,9 @@
         <div class = "title_header">
             TEAM CALENDAR
         </div>
-        {% for item in team_calendar %}
+        {% set lgt = (team_calendar|length / 2) |int %}
+        {% set team_calendar_list = (team_calendar|list)[0:lgt] %}
+        {% for item in team_calendar_list %}
         <div class = "team_calendar_fixture">
             <div class = "team_calendar_fixture_number">
                 {{ item }}

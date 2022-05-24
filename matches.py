@@ -16,12 +16,6 @@ URL_10 = "https://www.uefa.com/memberassociations/fra/domesticleague/#/mt/2021/1
 URL_11 = "https://www.uefa.com/memberassociations/fra/domesticleague/#/mt/2021/11"
 URL_12 = "https://www.uefa.com/memberassociations/fra/domesticleague/#/mt/2021/12"
 
-'''element = find_element_by_xpath("element_xpath") needs be replaced with:
-element = driver.find_element(By.XPATH, "element_xpath")'''
-
-'''The Selenium automation testing session opens the driver for the selected matches webpages, and puts the results into a Mongo database. These lines
-are commented out in order to prevent multiple unnecessary automation testing sessions and adds to the database'''
-
 def get_matches(matches_number):
     for i in range(1, matches_number):
         home_team = '//*[@id="calendar-container"]/div/div[{}]/div/div[2]/div[3]/div/div/span'.format(i)
@@ -37,36 +31,18 @@ def get_matches(matches_number):
         if home_team_goals_element != "":
             Match1 = Match({"home_team":home_team_element, "home_team_goals":int(home_team_goals_element), "away_team_goals":int(away_team_goals_element)
                                , "away_team":away_team_element})
-            #Database.insertOne("french_league_1", Match1.__dict__)
             DatabaseAtlas.insertOne("french_league_1", Match1.__dict__)
             logging.debug(Match1)
 
-# driver = webdriver.Chrome("chromedriver_2.exe")
-# driver.get(URL_8)
-# get_matches(40)
-# driver.close()
+MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+matches = {"August":40, "September":41, "October":41, "November":31, "December":41}
 
 # driver = webdriver.Chrome("chromedriver_2.exe")
-# driver.get(URL_9)
-# get_matches(41)
-# driver.quit()
-#
-# driver = webdriver.Chrome("chromedriver_2.exe")
-# driver.get(URL_10)
-# get_matches(41)
-# driver.quit()
-#
-# driver = webdriver.Chrome("chromedriver_2.exe")
-# driver.get(URL_11)
-# get_matches(31)
-# driver.quit()
-#
-# driver = webdriver.Chrome("chromedriver_2.exe")
-# driver.get(URL_12)
-# get_matches(41)
-# driver.quit()
+# for match in matches:
+#     driver.get("URL_{}".format(selected_index)
+#     get_matches(matches[match])
+#     driver.quit()
 
-#matches = [item for item in Database.findAll("french_league_1", {})]
 matches = [item for item in DatabaseAtlas.findAll("french_league_1", {})]
 
 def home_team_won(item, home_index, away_index):
@@ -222,12 +198,6 @@ def highest_match_capacity():
 
     return [match_with_highest_visit, biggest_capacity]
 
-#Database.dropCol("french_league_1")
-
-#response = requests.get("https://soccer.sportmonks.com/api/v2.0/leagues")
-#print(response.json())
-
 #highest_match_capacity()
-#c = get_next_match_for_team("AS Monaco")
-#logging.info(c)
+
 

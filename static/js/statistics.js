@@ -1,5 +1,4 @@
 var teamImages = document.getElementsByTagName("img");
-console.log(teamImages.length);
 
 var highestMatchCapacity = !(typeof(highest_match_capacity) === 'undefined');
 if (highestMatchCapacity) {
@@ -92,14 +91,7 @@ if (teamSalaries == true) {
     for (let i = 0; i < teamName.length; i++) {
 
         console.log(teamName[i].innerText.length);
-        if (teamName[i].innerText.length > 17) {
-
-            console.log(teamName[i].innerText);
-            teamName[i].style.transform = "translateY(-6px)";
-            console.log(teamName[i].parentNode.childNodes);
-            //teamName[i].parentNode.childNodes[1].marginTop = "140px";
-
-        }
+        if (teamName[i].innerText.length > 17) teamName[i].style.transform = "translateY(-6px)";
 
     }
 

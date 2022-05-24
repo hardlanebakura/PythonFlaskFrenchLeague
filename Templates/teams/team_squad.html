@@ -84,16 +84,20 @@
                 {% for player in squad["goalkeepers"] %}
                 <div class = "player_squad_player">
                         <div class = "player_squad_pic">
-                            <img src = "{{ player.player_face_url }}">
+                            <a href = "/players/{{ player.link_id }}">
+                                <img src = "{{ player.player_face_url }}">
+                            </a>
                         </div>
                         <div class = "player_squad_player_info">
                             <div class = "player_squad_name_flag">
-                                <div class = "player_squad_player_flag">
-                                    <img src = "{{ player.nation_flag_url }}">
-                                </div>
+                                <a href = "/players/{{ player.link_id }}">
+                                    <div class = "player_squad_player_flag">
+                                        <img src = "{{ player.nation_flag_url }}">
+                                    </div>
+                                </a>
                                 <div class = "player_squad_player_name">
                                     <a href = "/players/{{ player.link_id }}">
-                                    {{ player.short_name }}
+                                        {{ player.short_name }}
                                     </a>
                                 </div>
                             </div>
@@ -125,16 +129,20 @@
                 {% for player in squad["defenders"] %}
                 <div class = "player_squad_player">
                         <div class = "player_squad_pic">
-                            <img src = "{{ player.player_face_url }}">
+                            <a href = "/players/{{ player.link_id }}">
+                                <img src = "{{ player.player_face_url }}">
+                            </a>
                         </div>
                         <div class = "player_squad_player_info">
                             <div class = "player_squad_name_flag">
-                                <div class = "player_squad_player_flag">
-                                    <img src = "{{ player.nation_flag_url }}">
-                                </div>
+                                <a href = "/players/{{ player.link_id }}">
+                                    <div class = "player_squad_player_flag">
+                                        <img src = "{{ player.nation_flag_url }}">
+                                    </div>
+                                </a>
                                 <div class = "player_squad_player_name">
                                     <a href = "/players/{{ player.link_id }}">
-                                    {{ player.short_name }}
+                                        {{ player.short_name }}
                                     </a>
                                 </div>
                             </div>
@@ -165,17 +173,21 @@
             <div class = "team_team_midfielders_1">
                 {% for player in squad["midfielders"] %}
                 <div class = "player_squad_player">
+                        <a href = "/players/{{ player.link_id }}">
                         <div class = "player_squad_pic">
                             <img src = "{{ player.player_face_url }}">
                         </div>
+                        </a>
                         <div class = "player_squad_player_info">
                             <div class = "player_squad_name_flag">
-                                <div class = "player_squad_player_flag">
-                                    <img src = "{{ player.nation_flag_url }}">
-                                </div>
+                                <a href = "/players/{{ player.link_id }}">
+                                    <div class = "player_squad_player_flag">
+                                        <img src = "{{ player.nation_flag_url }}">
+                                    </div>
+                                </a>
                                 <div class = "player_squad_player_name">
                                     <a href = "/players/{{ player.link_id }}">
-                                    {{ player.short_name }}
+                                        {{ player.short_name }}
                                     </a>
                                 </div>
                             </div>
@@ -207,17 +219,21 @@
                 {% for player in squad["forwards"] %}
                 <div class = "player_squad_player">
                         <div class = "player_squad_pic">
-                            <img src = "{{ player.player_face_url }}">
+                            <a href = "/players/{{ player.link_id }}">
+                                <img src = "{{ player.player_face_url }}">
+                            </a>
                         </div>
                         <div class = "player_squad_player_info">
                             <div class = "player_squad_name_flag">
                                 <div class = "player_squad_player_flag">
-                                    <img src = "{{ player.nation_flag_url }}">
+                                    <a href = "/players/{{ player.link_id }}">
+                                        <img src = "{{ player.nation_flag_url }}">
+                                    </a>
                                 </div>
                                 <div class = "player_squad_player_name">
-                                <a href = "/players/{{ player.link_id }}">
-                                    {{ player.short_name }}
-                                </a>
+                                    <a href = "/players/{{ player.link_id }}">
+                                        {{ player.short_name }}
+                                    </a>
                                 </div>
                             </div>
                             <div class = "player_squad_player_value_positions">
@@ -240,10 +256,6 @@
                 {% endfor %}
             </div>
         </div>
-    </div>
-
-    <div class = "team_latest_news">
-        1
     </div>
 
 <script type = "text/javascript" src = "{{ url_for('static', filename = '/js/team.js')}}"></script>
