@@ -30,5 +30,5 @@ class DatabaseAtlas(object):
         c = DatabaseAtlas.db[col].drop()
         return c
 
-print(os.getenv('MONGODB_CONNECTION'))
+
 
